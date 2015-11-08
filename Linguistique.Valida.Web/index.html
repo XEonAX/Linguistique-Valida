@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="LangValApp">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <title>Linguistiq Valida</title>
+    <!--<link href="content/bootstrap.css" rel="stylesheet" />-->
+    <!--<link href="Content/toaster.css" rel="stylesheet" />-->
+    <link href="content/loading-bar.css" rel="stylesheet" />
+    <link href="content/angular-material/angular-material.css" rel="stylesheet">
+    <link href="Content/md-data-table.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="favicon.ico" rel="shortcut icon" />
+    <link href="content/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="page">
+        <md-toolbar ng-controller="HeaderController">
+            <div class="md-toolbar-tools md-warn">
+                <md-button ng-href="/#" class="headerbutton">
+                    Linguistiq Valida
+                </md-button>
+                <span flex></span>
+                <md-button class="md-primary" ng-click="showLogin($event)">Login</md-button>
+            </div>
+        </md-toolbar>
+        <md-card>
+            <!--<img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">-->
+            <md-card-content>
+                <div data-ng-view=""></div>
+            </md-card-content>
+            <!--<md-card-actions layout="row" layout-align="end center">
+                <md-button>Action 1</md-button>
+                <md-button>Action 2</md-button>
+            </md-card-actions>-->
+        </md-card>
+
+        <footer class="container">
+            Created by AEonAX: <a href="http://twitter.com/AEonAX" target="_blank">@AEonAX</a>
+
+            AEonAX's Blog: <a href="http://www.AEonAX.com" target="_blank">AEonAX.com</a>
+        </footer>
+    </div>
+
+    <!-- 3rd party libraries -->
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/angular-resource.js"></script>
+    <script src="scripts/angular-animate.js"></script>
+    <!--<script src="Scripts/angular-ui/ui-bootstrap.js"></script>-->
+    <!--<script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>-->
+    <script src="Scripts/angular-aria.js"></script>
+    <script src="Scripts/angular-material.js"></script>
+    <script src="Scripts/md-data-table.js"></script>
+    <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.9.0/ui-bootstrap.min.js"></script>-->
+    <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.9.0/ui-bootstrap-tpls.min.js"></script>-->
+    <!--<script type="text/javascript" src="scripts/toaster.js"></script>-->
+    <script type="text/javascript" src="scripts/loading-bar.js"></script>
+
+
+    <!-- Load app main script -->
+    <script src="app/app.js"></script>
+
+    <!-- Load services -->
+    <!--<script src="app/services/placesExplorerService.js"></script>-->
+    <!--<script src="app/services/placesPhotosService.js"></script>-->
+    <!-- Load controllers -->
+    <script src="App/controllers/headerController.js"></script>
+    <script src="App/controllers/projectsController.js"></script>
+    <!--<script src="app/controllers/placesPhotosController.js"></script>-->
+    <!--<script src="app/controllers/placesExplorerController.js"></script>-->
+    <!-- Load custom filters -->
+    <!--<script src="app/filters/placeNameCategoryFilter.js"></script>-->
+</body>
+</html>

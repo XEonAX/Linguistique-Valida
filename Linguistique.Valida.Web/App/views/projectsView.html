@@ -1,0 +1,97 @@
+﻿<md-content>
+    <!--<tr class="md-1-line" ng-repeat="project in projects">
+            <td>{{ project.ProjectName }}</td>
+            <td>{{ project.ManagerName }}</td>
+            <td>{{ project.duration }}</td>
+            <td>{{ project.participants }}</td>
+            <td>{{ project.state }}</td>
+    </tr>-->
+    <md-data-table-toolbar>
+        <h2 class="md-title">Projects</h2>
+        <span flex></span>
+        <md-button ng-click="CreateProject()" style="margin-right:20px;">
+        Create a new Project
+        </md-button>
+    </md-data-table-toolbar>
+
+    <md-data-table-container>
+        <!--        <table md-data-table md-row-select="selected" md-progress="deferred">-->
+        <table md-data-table md-row-select="selected">
+
+            <!--<thead md-order="query.order" md-trigger="onOrderChange">-->
+            <thead md-order="order">
+                <tr>
+                    <th name="ProjectName" order-by="ProjectName"></th>
+                    <th name="ManagerName" order-by="ManagerName"></th>
+                    <th name="Duration" order-by="duration"></th>
+                    <th numeric name="Participants" order-by="participants"></th>
+                    <th name="State" order-by="state"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr md-auto-select ng-repeat="project in projects | orderBy: order">
+                    <td>
+                        <md-button ng-href="#/projects/{{project._id}}">{{ project.ProjectName }}</md-button>
+                         <!--<a href="#/projects/{{project._id}}"></a>-->
+                    </td>
+                    <td>{{ project.ManagerName }}</td>
+                    <td>{{ project.duration }}</td>
+                    <td>{{ project.participants }}</td>
+                    <td>{{ project.state }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>No of rows: {{projects.length}}</p>
+    </md-data-table-container>
+
+    <md-data-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{desserts.total}}" md-trigger="onPaginationChange"></md-data-table-pagination>
+    <!--<md-subheader class="md-no-sticky">3 line item</md-subheader>
+    <md-list-item class="md-1-line" ng-repeat="item in todos">
+        <div class="md-list-item-text" layout="column">
+            <h3>{{ item.who }}</h3>
+            <h4>{{ item.what }}</h4>
+            <p>{{ item.notes }}</p>
+        </div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-subheader class="md-no-sticky">2 line item</md-subheader>
+    <md-list-item class="md-2-line">
+        <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />
+        <div class="md-list-item-text">
+            <h3>{{ todos[0].who }}</h3>
+            <p>Secondary text</p>
+        </div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-subheader class="md-no-sticky">3 line item, long paragraph (see on mobile)</md-subheader>
+    <md-list-item class="md-3-line md-long-text">
+        <img ng-src="{{todos[0].face}}?25" class="md-avatar" alt="{{todos[0].who}}" />
+        <div class="md-list-item-text">
+            <h3>{{ todos[0].who }}</h3>
+            <p>
+                Secondary line text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa quam.
+                Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum
+                velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+        </div>
+    </md-list-item>
+    <md-list-item class="md-3-line md-long-text">
+        <div class="md-list-item-text">
+            <h3>{{ todos[1].who }}</h3>
+            <p>
+                Secondary line text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa quam.
+                Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum
+                velit. Class aptent taciti sociosqu ad litra torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+        </div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-subheader class="md-no-sticky">Classes</md-subheader>
+    <md-list-item class="md-2-line" ng-repeat="phone in phones">
+        <md-icon md-svg-icon="communication:phone" ng-if="$index !== 2" ng-class="{'md-avatar-icon': $index === 1}"></md-icon>
+        <div class="md-list-item-text" ng-class="{'md-offset': $index == 2 }">
+            <h3> {{ phone.number }} </h3>
+            <p> {{ phone.type }} </p>
+        </div>
+    </md-list-item>-->
+</md-content>
