@@ -8,7 +8,7 @@
         $mdDialog.show(
             {
                 controller: createProjectDialogController,
-                templateUrl: 'app/views/CreateProjectDialog.html',
+                templateUrl: 'App/views/CreateProjectDialog.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
