@@ -1,45 +1,44 @@
-﻿app.controller('ProjectsController', function ($scope) {
-    $scope.phones = [
-      { type: 'Home', number: '(555) 251-1234' },
-      { type: 'Cell', number: '(555) 786-9841' },
-      { type: 'Office', number: '(555) 314-1592' }
-    ];
-    $scope.todos = [
-      {
-          what: 'Brunch this weekend?',
-          who: 'Min Li Chan',
-          when: '3:08PM',
-          notes: " I'll be in your neighborhood doing errands"
-      },
-      {
-          what: 'Brunch this weekend?',
-          who: 'Min Li Chan',
-          when: '3:08PM',
-          notes: " I'll be in your neighborhood doing errands"
-      },
-      {
-          what: 'Brunch this weekend?',
-          who: 'Min Li Chan',
-          when: '3:08PM',
-          notes: " I'll be in your neighborhood doing errands"
-      },
-      {
-          what: 'Brunch this weekend?',
-          who: 'Min Li Chan',
-          when: '3:08PM',
-          notes: " I'll be in your neighborhood doing errands"
-      },
-      {
-          what: 'Brunch this weekend?',
-          who: 'Min Li Chan',
-          when: '3:08PM',
-          notes: " I'll be in your neighborhood doing errands"
-      },
-    ];
-
-
-    $scope.selected=[];
-    $scope.projects = [
+﻿app.controller('ProjectsController', function ($scope, $mdDialog, $mdToast)
+{
+    $scope.selected = [];
+    $scope.NewProject = [];
+    $scope.createProject = function (ev)
+    {
+        $scope.NewProject = [];
+        $mdDialog.show(
+            {
+                controller: createProjectDialogController,
+                templateUrl: 'app/views/CreateProjectDialog.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                locals: {
+                    project: $scope.NewProject
+                }
+            }
+        )
+        .then
+        (
+            function OK(project)
+            {
+                $scope.projects.push({
+                    _id: "563f6ee92c7cefa349767c8a",
+                    ProjectName: project.projectname,
+                    ManagerName: project.manager,
+                    duration: project.fromDate + ' to ' + project.toDate,
+                    participants: project.participants.length,
+                    state: "Open"
+                })
+                $mdToast.show($mdToast.simple().content(JSON.stringify(project)));
+            },
+            function KO()
+            {
+                $mdToast.show($mdToast.simple().content('You cancelled the dialog.'));
+            }
+        );
+    };
+    $scope.projects =
+    [
       {
           _id: "563f6ee92c7cefa349767c8a",
           ProjectName: "TVT R2018x",
@@ -242,3 +241,88 @@
       }
     ];
 });
+
+function createProjectDialogController($scope, $mdDialog, project)
+{
+    $scope.project = project;
+    var self = $scope.project;
+    self.querySearch = querySearch;
+    self.allContacts = loadContacts();
+    self.participants = [];
+    self.itpeople = [];
+    self.steampeople = [];
+
+    self.filterSelected = true;
+    self.languages = ['FRENCH','GERMAN','JAPANESE','CHINESE'];
+
+    /**
+     * Search for contacts.
+     */
+    function querySearch(query)
+    {
+        var results = query ?
+            self.allContacts.filter(createFilterFor(query)) : [];
+        return results;
+    }
+    /**
+     * Create filter function for a query string
+     */
+    function createFilterFor(query)
+    {
+        var lowercaseQuery = angular.lowercase(query);
+        return function filterFn(contact)
+        {
+            return (contact._lowername.indexOf(lowercaseQuery) != -1);;
+        };
+    }
+    function loadContacts()
+    {
+        var contacts = [
+          'Marina Augustine',
+          'Oddr Sarno',
+          'Nick Giannopoulos',
+          'Narayana Garner',
+          'Anita Gros',
+          'Megan Smith',
+          'Tsvetko Metzger',
+          'Hector Simek',
+          'Some-guy withalongalastaname'
+        ];
+        return contacts.map(function (c, index)
+        {
+            var cParts = c.split(' ');
+            var contact = {
+                name: c,
+                email: cParts[0][0].toLowerCase() + '.' + cParts[1].toLowerCase() + '@example.com',
+                image: 'http://lorempixel.com/50/50/people?' + index
+            };
+            contact._lowername = contact.name.toLowerCase();
+            return contact;
+        })
+    }
+
+
+
+
+
+
+
+
+
+
+
+    $scope.hide = function ()
+    {
+        $mdDialog.hide();
+    };
+    $scope.cancel = function ()
+    {
+        $mdDialog.cancel();
+    };
+    $scope.create = function (project)
+    {
+        $mdDialog.hide(project);
+    };
+
+
+};

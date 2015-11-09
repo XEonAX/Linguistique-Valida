@@ -1,0 +1,88 @@
+﻿<md-dialog aria-label="Create Project" ng-cloak flex="90">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Create Project</h2>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-content layout-padding layout="column">
+                    <!--<md-input-container>
+                        <label>Project Name</label>
+                        <input ng-model="project.projectname">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Release</label>
+                        <input ng-model="project.release">
+                    </md-input-container>-->
+                    <md-input-container md-no-float class="md-block">
+                        <input ng-model="project.projectname" placeholder="Project Name">
+                    </md-input-container>
+                    <md-input-container md-no-float class="md-block">
+                        <input ng-model="project.release" placeholder="Release">
+                    </md-input-container>
+                    <md-content layout-padding layout="row">
+                        <md-datepicker ng-model="project.fromDate" md-placeholder="From"></md-datepicker>
+                        <md-datepicker ng-model="project.toDate" md-placeholder="To"></md-datepicker>
+                    </md-content>
+                    <md-contact-chips ng-model="project.participants"
+                                      md-contacts="project.querySearch($query)"
+                                      md-contact-name="name"
+                                      md-contact-image="image"
+                                      md-contact-email="email"
+                                      md-require-match="false"
+                                      md-highlight-flags="i"
+                                      filter-selected="project.filterSelected"
+                                      placeholder="Participants">
+                    </md-contact-chips>
+
+                    <md-chips ng-model="project.languages"
+                              readonly="project.readonly"
+                              placeholder="Enter a language"
+                              delete-button-label="Remove language"
+                              delete-hint="Press delete to remove Language"
+                              secondary-placeholder="+Language"></md-chips>
+                    <!--<md-input-container>
+                        <label>Project Manager</label>
+                        <input ng-model="project.manager">
+                    </md-input-container>-->
+                    <md-input-container md-no-float class="md-block">
+                        <input ng-model="project.manager" placeholder="Project Manager">
+                    </md-input-container>
+                        <md-contact-chips ng-model="project.steampeople"
+                                          md-contacts="project.querySearch($query)"
+                                          md-contact-name="name"
+                                          md-contact-image="image"
+                                          md-contact-email="email"
+                                          md-require-match="true"
+                                          md-highlight-flags="i"
+                                          filter-selected="project.filterSelected"
+                                          placeholder="Steam Incharges">
+                        </md-contact-chips>
+
+                        <md-contact-chips ng-model="project.itpeople"
+                                          md-contacts="project.querySearch($query)"
+                                          md-contact-name="name"
+                                          md-contact-image="image"
+                                          md-contact-email="email"
+                                          md-require-match="true"
+                                          md-highlight-flags="i"
+                                          filter-selected="project.filterSelected"
+                                          placeholder="IT People">
+                        </md-contact-chips>
+</md-content>
+            </div>
+
+        </md-dialog-content>
+        <md-dialog-actions layout="row" layout-align="center">
+            <md-button ng-click="create(project)">
+                Create
+            </md-button>
+            <md-button ng-click="cancel()">
+                Cancel
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+

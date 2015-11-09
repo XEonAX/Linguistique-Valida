@@ -135,6 +135,7 @@
     <Content Include="App\App.js" />
     <Content Include="App\controllers\headerController.js" />
     <Content Include="App\controllers\projectsController.js" />
+    <Content Include="App\views\CreateProjectDialog.html" />
     <Content Include="App\views\LoginDialog.html" />
     <Content Include="App\views\projectsView.html" />
     <Content Include="Content\angular-material\angular-material.css" />
