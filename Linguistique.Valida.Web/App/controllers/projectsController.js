@@ -25,7 +25,7 @@
                     _id: "563f6ee92c7cefa349767c8a",
                     ProjectName: project.projectname,
                     ManagerName: project.manager,
-                    duration: project.fromDate + ' to ' + project.toDate,
+                    duration: project.fromDate.toDateString() + ' to ' + project.toDate.toDateString(),
                     participants: project.participants.length,
                     state: "Open"
                 })

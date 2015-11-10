@@ -17,14 +17,32 @@
                         <input ng-model="project.release">
                     </md-input-container>-->
                     <md-input-container md-no-float class="md-block">
-                        <input ng-model="project.projectname" placeholder="Project Name">
+                        <input ng-model="project.projectname" placeholder="Project Name" required>
+                        <div ng-messages="project.projectname.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
                     </md-input-container>
                     <md-input-container md-no-float class="md-block">
-                        <input ng-model="project.release" placeholder="Release">
+                        <input ng-model="project.release" placeholder="Release" required>
+                        <div ng-messages="project.release.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
                     </md-input-container>
                     <md-content layout-padding layout="row">
-                        <md-datepicker ng-model="project.fromDate" md-placeholder="From"></md-datepicker>
-                        <md-datepicker ng-model="project.toDate" md-placeholder="To"></md-datepicker>
+
+                        <div md-no-float class="md-block">
+                            <md-datepicker ng-model="project.fromDate" md-placeholder="From" required></md-datepicker>
+                            <div ng-messages="project.fromDate.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </div>
+
+                        <div md-no-float class="md-block">
+                            <md-datepicker ng-model="project.toDate" md-placeholder="To" required></md-datepicker>
+                            <div ng-messages="project.toDate.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </div>
                     </md-content>
                     <md-contact-chips ng-model="project.participants"
                                       md-contacts="project.querySearch($query)"
@@ -50,28 +68,28 @@
                     <md-input-container md-no-float class="md-block">
                         <input ng-model="project.manager" placeholder="Project Manager">
                     </md-input-container>
-                        <md-contact-chips ng-model="project.steampeople"
-                                          md-contacts="project.querySearch($query)"
-                                          md-contact-name="name"
-                                          md-contact-image="image"
-                                          md-contact-email="email"
-                                          md-require-match="true"
-                                          md-highlight-flags="i"
-                                          filter-selected="project.filterSelected"
-                                          placeholder="Steam Incharges">
-                        </md-contact-chips>
+                    <md-contact-chips ng-model="project.steampeople"
+                                      md-contacts="project.querySearch($query)"
+                                      md-contact-name="name"
+                                      md-contact-image="image"
+                                      md-contact-email="email"
+                                      md-require-match="true"
+                                      md-highlight-flags="i"
+                                      filter-selected="project.filterSelected"
+                                      placeholder="Steam Incharges">
+                    </md-contact-chips>
 
-                        <md-contact-chips ng-model="project.itpeople"
-                                          md-contacts="project.querySearch($query)"
-                                          md-contact-name="name"
-                                          md-contact-image="image"
-                                          md-contact-email="email"
-                                          md-require-match="true"
-                                          md-highlight-flags="i"
-                                          filter-selected="project.filterSelected"
-                                          placeholder="IT People">
-                        </md-contact-chips>
-</md-content>
+                    <md-contact-chips ng-model="project.itpeople"
+                                      md-contacts="project.querySearch($query)"
+                                      md-contact-name="name"
+                                      md-contact-image="image"
+                                      md-contact-email="email"
+                                      md-require-match="true"
+                                      md-highlight-flags="i"
+                                      filter-selected="project.filterSelected"
+                                      placeholder="IT People">
+                    </md-contact-chips>
+                </md-content>
             </div>
 
         </md-dialog-content>

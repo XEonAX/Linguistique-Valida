@@ -1,4 +1,4 @@
-﻿var app = angular.module('LangValApp', ['ngRoute', 'ngResource', 'ngMaterial', 'chieffancypants.loadingBar', 'md.data.table']);
+﻿var app = angular.module('LangValApp', ['ngRoute', 'ngResource', 'ngMaterial', 'ngMessages', 'chieffancypants.loadingBar', 'md.data.table']);
 
 app.config(function ($mdThemingProvider, $routeProvider) {
     // Configure a dark theme with primary foreground yellow
