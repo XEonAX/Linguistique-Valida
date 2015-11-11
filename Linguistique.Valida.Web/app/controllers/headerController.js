@@ -5,7 +5,7 @@ app.controller('HeaderController', function ($scope, $mdDialog, $mdToast)
     {
         $mdDialog.show({
             controller: loginDialogController,
-            templateUrl: 'App/views/LoginDialog.html',
+            templateUrl: 'app/views/LoginDialog.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true

@@ -8,7 +8,7 @@ app.config(function ($mdThemingProvider, $routeProvider) {
 
     $routeProvider.when("/projects", {
         controller: "ProjectsController",
-        templateUrl: "App/views/projectsView.html"
+        templateUrl: "app/views/Projects.html"
     });
 
     $routeProvider.otherwise({ redirectTo: "/projects" });
