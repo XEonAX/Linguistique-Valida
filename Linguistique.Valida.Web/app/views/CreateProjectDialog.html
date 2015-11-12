@@ -31,15 +31,15 @@
                     <md-content layout-padding layout="row">
 
                         <div md-no-float class="md-block">
-                            <md-datepicker ng-model="project.fromDate" md-placeholder="From" required></md-datepicker>
-                            <div ng-messages="project.fromDate.$error">
+                            <md-datepicker ng-model="dateFrom" md-placeholder="From" required></md-datepicker>
+                            <div ng-messages="dateFrom.$error">
                                 <div ng-message="required">This is required.</div>
                             </div>
                         </div>
 
                         <div md-no-float class="md-block">
-                            <md-datepicker ng-model="project.toDate" md-placeholder="To" required></md-datepicker>
-                            <div ng-messages="project.toDate.$error">
+                            <md-datepicker ng-model="dateTo" md-placeholder="To" required></md-datepicker>
+                            <div ng-messages="dateTo.$error">
                                 <div ng-message="required">This is required.</div>
                             </div>
                         </div>

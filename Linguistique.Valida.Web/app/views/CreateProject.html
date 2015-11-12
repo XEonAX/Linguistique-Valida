@@ -1,0 +1,104 @@
+﻿<form>
+        <div layout="column">
+            <md-content layout-padding layout="column">
+                <!--<md-input-container>
+                    <label>Project Name</label>
+                    <input ng-model="project.projectname">
+                </md-input-container>
+                <md-input-container>
+                    <label>Release</label>
+                    <input ng-model="project.release">
+                </md-input-container>-->
+                <md-input-container md-no-float class="md-block">
+                    <label>Project Name</label>
+                    <input ng-model="project.projectname" required>
+                    <div ng-messages="project.projectname.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <label>Release</label>
+                    <input ng-model="project.release" required>
+                    <div ng-messages="project.release.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                <md-content layout-padding layout="row">
+
+                    <div md-no-float class="md-block">
+                        <md-datepicker ng-model="dateFrom" md-placeholder="From" required></md-datepicker>
+                        <div ng-messages="dateFrom.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </div>
+
+                    <div md-no-float class="md-block">
+                        <md-datepicker ng-model="dateTo" md-placeholder="To" required></md-datepicker>
+                        <div ng-messages="dateTo.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </div>
+                </md-content>
+                <md-contact-chips ng-model="project.participants"
+                                  md-contacts="project.querySearch($query)"
+                                  md-contact-name="name"
+                                  md-contact-image="image"
+                                  md-contact-email="email"
+                                  md-require-match="false"
+                                  md-highlight-flags="i"
+                                  filter-selected="project.filterSelected"
+                                  placeholder="Participants">
+                </md-contact-chips>
+
+                <md-chips ng-model="project.languages"
+                          readonly="project.readonly"
+                          placeholder="Enter a language"
+                          delete-button-label="Remove language"
+                          delete-hint="Press delete to remove Language"
+                          secondary-placeholder="+Language"></md-chips>
+                <!--<md-input-container>
+                    <label>Project Manager</label>
+                    <input ng-model="project.manager">
+                </md-input-container>-->
+                <md-input-container md-no-float class="md-block">
+                    <label>Project Manager</label>
+                    <input ng-model="project.manager" required>
+                    <div ng-messages="project.manager.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                <md-contact-chips ng-model="project.steampeople"
+                                  md-contacts="project.querySearch($query)"
+                                  md-contact-name="name"
+                                  md-contact-image="image"
+                                  md-contact-email="email"
+                                  md-require-match="true"
+                                  md-highlight-flags="i"
+                                  filter-selected="project.filterSelected"
+                                  placeholder="Steam Incharges">
+                </md-contact-chips>
+
+                <md-contact-chips ng-model="project.itpeople"
+                                  md-contacts="project.querySearch($query)"
+                                  md-contact-name="name"
+                                  md-contact-image="image"
+                                  md-contact-email="email"
+                                  md-require-match="true"
+                                  md-highlight-flags="i"
+                                  filter-selected="project.filterSelected"
+                                  placeholder="IT People">
+                </md-contact-chips>
+            </md-content>
+        </div>
+
+
+    <div layout="row" layout-align="center">
+        <md-button ng-click="create(project)">
+            Create
+        </md-button>
+        <md-button ng-click="cancel()">
+            Cancel
+        </md-button>
+    </div>
+</form>
+

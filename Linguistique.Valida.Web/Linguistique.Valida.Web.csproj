@@ -133,11 +133,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\createProjectController.js" />
     <Content Include="app\controllers\headerController.js" />
     <Content Include="app\controllers\projectsController.js" />
+    <Content Include="app\services\projectsService.js" />
+    <Content Include="app\views\CreateProject.html" />
     <Content Include="app\views\CreateProjectDialog.html" />
     <Content Include="app\views\LoginDialog.html" />
-    <Content Include="app\views\projectsView.html" />
+    <Content Include="app\views\Projects.html" />
     <Content Include="Content\angular-material\angular-material.css" />
     <Content Include="Content\angular-material\angular-material.min.css" />
     <Content Include="Content\angular-ui.css" />

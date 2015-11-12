@@ -23,9 +23,10 @@
                 <tr>
                     <th name="ProjectName" order-by="ProjectName"></th>
                     <th name="ManagerName" order-by="ManagerName"></th>
-                    <th name="Duration" order-by="duration"></th>
-                    <th numeric name="Participants" order-by="participants"></th>
-                    <th name="State" order-by="state"></th>
+                    <th name="From" order-by="FromDate"></th>
+                    <th name="To" order-by="ToDate"></th>
+                    <th name="Participants" order-by="Participants.length"></th>
+                    <th name="State" order-by="State"></th>
                 </tr>
             </thead>
             <tbody>
@@ -35,16 +36,17 @@
                          <!--<a href="#/projects/{{project._id}}"></a>-->
                     </td>
                     <td>{{ project.ManagerName }}</td>
-                    <td>{{ project.duration }}</td>
-                    <td>{{ project.participants }}</td>
-                    <td>{{ project.state }}</td>
+                    <td>{{ formatDate(project.FromDate) |  date:"yyyy/MM/dd" }}</td>
+                    <td>{{ formatDate(project.ToDate) |  date:"yyyy/MM/dd" }}</td>
+                    <td>{{ project.Participants.length }}</td>
+                    <td>{{ project.State }}</td>
                 </tr>
             </tbody>
         </table>
         <p>No of rows: {{projects.length}}</p>
     </md-data-table-container>
 
-    <md-data-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{desserts.total}}" md-trigger="onPaginationChange"></md-data-table-pagination>
+    <md-data-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{projects.total}}" md-trigger="onPaginationChange"></md-data-table-pagination>
     <!--<md-subheader class="md-no-sticky">3 line item</md-subheader>
     <md-list-item class="md-1-line" ng-repeat="item in todos">
         <div class="md-list-item-text" layout="column">

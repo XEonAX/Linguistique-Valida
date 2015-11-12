@@ -23,3 +23,5 @@
 /// <reference path="../app/controllers/headercontroller.js" />
 /// <reference path="../app/controllers/projectscontroller.js" />
 /// <reference path="../app/app.js" />
+/// <reference path="../app/controllers/createprojectcontroller.js" />
+/// <reference path="../app/services/projectsservice.js" />
