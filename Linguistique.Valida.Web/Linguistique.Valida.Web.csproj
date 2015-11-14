@@ -135,12 +135,19 @@
     <Content Include="app\app.js" />
     <Content Include="app\controllers\createProjectController.js" />
     <Content Include="app\controllers\headerController.js" />
+    <Content Include="app\controllers\projectController.js" />
     <Content Include="app\controllers\projectsController.js" />
     <Content Include="app\services\projectsService.js" />
     <Content Include="app\views\CreateProject.html" />
     <Content Include="app\views\CreateProjectDialog.html" />
+    <Content Include="app\views\Defects.html" />
     <Content Include="app\views\LoginDialog.html" />
+    <Content Include="app\views\Project.html" />
     <Content Include="app\views\Projects.html" />
+    <Content Include="app\views\Requirements.html" />
+    <Content Include="app\views\Schedule.html" />
+    <Content Include="assets\images\loader.gif" />
+    <Content Include="Content\9-cube-grid.css" />
     <Content Include="Content\angular-material\angular-material.css" />
     <Content Include="Content\angular-material\angular-material.min.css" />
     <Content Include="Content\angular-ui.css" />
@@ -150,6 +157,7 @@
     <Content Include="Content\loading-bar.css" />
     <Content Include="Content\loading-bar.min.css" />
     <Content Include="Content\md-data-table.css" />
+    <Content Include="Content\please-wait.css" />
     <Content Include="Content\select2.css" />
     <Content Include="Content\select2.png" />
     <Content Include="Content\select2x2.png" />
@@ -945,6 +953,8 @@
     <Content Include="Scripts\loading-bar.min.js" />
     <Content Include="Scripts\md-data-table.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\please-wait.js" />
+    <Content Include="Scripts\please-wait.min.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\_references.js" />

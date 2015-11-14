@@ -12,6 +12,11 @@ app.config(function ($mdThemingProvider, $routeProvider)
         templateUrl: "app/views/Projects.html"
     });
 
+    $routeProvider.when("/Project/:id", {
+        controller: "ProjectController",
+        templateUrl: "app/views/Project.html"
+    });
+
     $routeProvider.when("/CreateProject", {
         controller: "CreateProjectController",
         templateUrl: "app/views/CreateProject.html"

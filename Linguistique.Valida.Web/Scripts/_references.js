@@ -25,3 +25,5 @@
 /// <reference path="../app/app.js" />
 /// <reference path="../app/controllers/createprojectcontroller.js" />
 /// <reference path="../app/services/projectsservice.js" />
+/// <reference path="../app/controllers/projectcontroller.js" />
+/// <reference path="please-wait.min.js" />

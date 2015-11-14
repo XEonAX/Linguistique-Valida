@@ -32,7 +32,7 @@
             <tbody>
                 <tr md-auto-select ng-repeat="project in projects | orderBy: order">
                     <td>
-                        <md-button ng-href="#/projects/{{project._id}}">{{ project.ProjectName }}</md-button>
+                        <md-button ng-href="#/Project/{{project._id}}">{{ project.ProjectName }}</md-button>
                          <!--<a href="#/projects/{{project._id}}"></a>-->
                     </td>
                     <td>{{ project.ManagerName }}</td>

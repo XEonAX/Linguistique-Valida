@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('HeaderController', function ($scope, $mdDialog, $mdToast)
+app.controller('HeaderController', function ($scope, $mdDialog, $mdToast, $window)
 {
     $scope.showLogin = function (ev)
     {
@@ -18,6 +18,7 @@ app.controller('HeaderController', function ($scope, $mdDialog, $mdToast)
             $mdToast.show($mdToast.simple().content('You cancelled the dialog.'));
         });
     };
+    $window.loading_screen.finish();
 });
 function loginDialogController($scope, $mdDialog)
 {
