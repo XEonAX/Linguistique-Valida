@@ -12,7 +12,7 @@ app.controller('HeaderController', function ($scope, $mdDialog, $mdToast, $windo
         })
         .then(function login(user)
         {
-            $mdToast.show($mdToast.simple().content('You tried logging in with "' + user.trigram + ' , ' + user.password + '".'));
+            $mdToast.show($mdToast.simple().content('You tried logging in with "' + user.userid + ' , ' + user.password + '".'));
         }, function cancel()
         {
             $mdToast.show($mdToast.simple().content('You cancelled the dialog.'));

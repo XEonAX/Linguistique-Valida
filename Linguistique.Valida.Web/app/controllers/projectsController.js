@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('ProjectsController', function ($scope, $mdDialog, $mdToast, $filter, $location, ProjectsService)
+app.controller('ProjectsController', function ($scope, $mdDialog, $mdToast, $filter, $location,$window, ProjectsService)
 {
     $scope.selected = [];
     $scope.NewProject = [];
@@ -248,8 +248,14 @@ app.controller('ProjectsController', function ($scope, $mdDialog, $mdToast, $fil
         var dateOut = new Date(date);
         return dateOut;
     };
-    $scope.orderByDate = function(item) {
+    $scope.orderByDate = function (item)
+    {
         return $filter('date')(item, 'yyyyMMdd');
+    };
+
+    $scope.SendMail = function (mail,subject)
+    {
+        $window.location = "mailto:" + mail + "?subject=" +subject+ "&body=Hola!!!";
     };
 
 });

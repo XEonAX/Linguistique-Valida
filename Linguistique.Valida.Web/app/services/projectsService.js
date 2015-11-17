@@ -3,203 +3,232 @@ app.factory('ProjectsService', function ()
 {
     var projects =
 [
-    {
-        "_id": "56430e109b0a5f8b0ffbebef",
-        "ProjectName": "XMX Z28R",
-        "ManagerName": "FOSTER Fry",
-        "FromDate": "Sat Nov 05 2011 07:15:55 GMT+0000 (UTC)",
-        "ToDate": "Tue Nov 15 2005 15:54:18 GMT+0000 (UTC)",
-        "Participants": [
-          {
-              "Name": "JENNINGS Dudley"
-          },
-          {
-              "Name": "BAXTER Summer"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          }
-        ],
-        "State": "In Progress"
-    },
   {
-      "_id": "56430e10d15c99a644ec9ee3",
-      "ProjectName": "XMX Z24R",
-      "ManagerName": "COTTON Kathie",
-      "FromDate": "Sat Apr 30 1988 19:09:26 GMT+0000 (UTC)",
-      "ToDate": "Thu May 06 1982 02:56:16 GMT+0000 (UTC)",
+      "_id": "564b5a6db0f8cdf782ac1b18",
+      "Name": "XMX Z18R",
+      "Manager": {
+          "FirstName": "Holden",
+          "LastName": "REILLY",
+          "Company": "nin10do",
+          "Email": "holden_reilly@nin10do.com"
+      },
+      "FromDate": "Thu Feb 07 2013 20:22:07 GMT+0000 (UTC)",
+      "ToDate": "Tue Sep 22 1992 18:28:41 GMT+0000 (UTC)",
       "Participants": [
         {
-            "Name": "JENNINGS Dudley"
+            "FirstName": "Kaitlin",
+            "LastName": "HOWARD",
+            "Company": "nin10do",
+            "Email": "kaitlin_howard@nin10do.com"
         },
         {
-            "Name": "BAXTER Summer"
+            "FirstName": "Shelley",
+            "LastName": "RATLIFF",
+            "Company": "nin10do",
+            "Email": "shelley_ratliff@nin10do.com"
         },
         {
-            "Name": "FRANKLIN Aisha"
+            "FirstName": "Foster",
+            "LastName": "HERRING",
+            "Company": "nin10do",
+            "Email": "foster_herring@nin10do.com"
         },
-          {
-              "Name": "FRANKLIN Aisha"
-          }
+        {
+            "FirstName": "Rowe",
+            "LastName": "LARA",
+            "Company": "nin10do",
+            "Email": "rowe_lara@nin10do.com"
+        },
+        {
+            "FirstName": "Betsy",
+            "LastName": "WILDER",
+            "Company": "nin10do",
+            "Email": "betsy_wilder@nin10do.com"
+        }
       ],
       "State": "In Progress"
   },
   {
-      "_id": "56430e10dd3658c10f50599b",
-      "ProjectName": "XMX Z26R",
-      "ManagerName": "WALTER Battle",
-      "FromDate": "Sun Dec 02 2012 11:04:45 GMT+0000 (UTC)",
-      "ToDate": "Thu Mar 24 1977 01:18:18 GMT+0000 (UTC)",
+      "_id": "564b5a6d64499aee6fe60ea3",
+      "Name": "XMX Z29R",
+      "Manager": {
+          "FirstName": "Marla",
+          "LastName": "SCHMIDT",
+          "Company": "nin10do",
+          "Email": "marla_schmidt@nin10do.com"
+      },
+      "FromDate": "Sat Jan 29 2000 01:48:35 GMT+0000 (UTC)",
+      "ToDate": "Sun Aug 07 1994 06:46:46 GMT+0000 (UTC)",
       "Participants": [
         {
-            "Name": "JENNINGS Dudley"
+            "FirstName": "Kaitlin",
+            "LastName": "HOWARD",
+            "Company": "nin10do",
+            "Email": "kaitlin_howard@nin10do.com"
         },
         {
-            "Name": "BAXTER Summer"
+            "FirstName": "Shelley",
+            "LastName": "RATLIFF",
+            "Company": "nin10do",
+            "Email": "shelley_ratliff@nin10do.com"
         },
         {
-            "Name": "FRANKLIN Aisha"
+            "FirstName": "Foster",
+            "LastName": "HERRING",
+            "Company": "nin10do",
+            "Email": "foster_herring@nin10do.com"
         },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          }
+        {
+            "FirstName": "Rowe",
+            "LastName": "LARA",
+            "Company": "nin10do",
+            "Email": "rowe_lara@nin10do.com"
+        },
+        {
+            "FirstName": "Betsy",
+            "LastName": "WILDER",
+            "Company": "nin10do",
+            "Email": "betsy_wilder@nin10do.com"
+        }
+      ],
+      "State": "In Progress"
+  },
+  {
+      "_id": "564b5a6d1a3a0d94009d712f",
+      "Name": "XMX Z30R",
+      "Manager": {
+          "FirstName": "Jensen",
+          "LastName": "RANDALL",
+          "Company": "nin10do",
+          "Email": "jensen_randall@nin10do.com"
+      },
+      "FromDate": "Sun Nov 28 1971 13:41:33 GMT+0000 (UTC)",
+      "ToDate": "Tue Nov 18 1980 09:22:33 GMT+0000 (UTC)",
+      "Participants": [
+        {
+            "FirstName": "Kaitlin",
+            "LastName": "HOWARD",
+            "Company": "nin10do",
+            "Email": "kaitlin_howard@nin10do.com"
+        },
+        {
+            "FirstName": "Shelley",
+            "LastName": "RATLIFF",
+            "Company": "nin10do",
+            "Email": "shelley_ratliff@nin10do.com"
+        },
+        {
+            "FirstName": "Foster",
+            "LastName": "HERRING",
+            "Company": "nin10do",
+            "Email": "foster_herring@nin10do.com"
+        },
+        {
+            "FirstName": "Rowe",
+            "LastName": "LARA",
+            "Company": "nin10do",
+            "Email": "rowe_lara@nin10do.com"
+        },
+        {
+            "FirstName": "Betsy",
+            "LastName": "WILDER",
+            "Company": "nin10do",
+            "Email": "betsy_wilder@nin10do.com"
+        }
       ],
       "State": "Opened"
   },
   {
-      "_id": "56430e10fdf7fb478316c058",
-      "ProjectName": "XMX Z21R",
-      "ManagerName": "MARKS Martin",
-      "FromDate": "Tue May 23 2000 10:26:34 GMT+0000 (UTC)",
-      "ToDate": "Sat Mar 23 2002 22:23:32 GMT+0000 (UTC)",
+      "_id": "564b5a6d3fe999cd34e89173",
+      "Name": "XMX Z20R",
+      "Manager": {
+          "FirstName": "Shannon",
+          "LastName": "TRAVIS",
+          "Company": "nin10do",
+          "Email": "shannon_travis@nin10do.com"
+      },
+      "FromDate": "Tue Jan 23 1973 07:47:42 GMT+0000 (UTC)",
+      "ToDate": "Sat May 12 1979 16:13:35 GMT+0000 (UTC)",
       "Participants": [
         {
-            "Name": "JENNINGS Dudley"
+            "FirstName": "Kaitlin",
+            "LastName": "HOWARD",
+            "Company": "nin10do",
+            "Email": "kaitlin_howard@nin10do.com"
         },
         {
-            "Name": "BAXTER Summer"
+            "FirstName": "Shelley",
+            "LastName": "RATLIFF",
+            "Company": "nin10do",
+            "Email": "shelley_ratliff@nin10do.com"
         },
         {
-            "Name": "FRANKLIN Aisha"
+            "FirstName": "Foster",
+            "LastName": "HERRING",
+            "Company": "nin10do",
+            "Email": "foster_herring@nin10do.com"
         },
         {
-            "Name": "FRANKLIN Aisha"
+            "FirstName": "Rowe",
+            "LastName": "LARA",
+            "Company": "nin10do",
+            "Email": "rowe_lara@nin10do.com"
         },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          }
+        {
+            "FirstName": "Betsy",
+            "LastName": "WILDER",
+            "Company": "nin10do",
+            "Email": "betsy_wilder@nin10do.com"
+        }
       ],
       "State": "Opened"
   },
   {
-      "_id": "56430e10f1f3540d86068660",
-      "ProjectName": "XMX Z24R",
-      "ManagerName": "CONRAD Mcclure",
-      "FromDate": "Sun Jan 28 1996 03:17:47 GMT+0000 (UTC)",
-      "ToDate": "Mon Nov 26 2012 18:49:21 GMT+0000 (UTC)",
+      "_id": "564b5a6de376bc9ef477fef6",
+      "Name": "XMX Z17R",
+      "Manager": {
+          "FirstName": "Allen",
+          "LastName": "COTTON",
+          "Company": "nin10do",
+          "Email": "allen_cotton@nin10do.com"
+      },
+      "FromDate": "Sat Mar 14 2009 21:59:35 GMT+0000 (UTC)",
+      "ToDate": "Tue Sep 04 2012 16:58:17 GMT+0000 (UTC)",
       "Participants": [
         {
-            "Name": "JENNINGS Dudley"
+            "FirstName": "Kaitlin",
+            "LastName": "HOWARD",
+            "Company": "nin10do",
+            "Email": "kaitlin_howard@nin10do.com"
         },
         {
-            "Name": "BAXTER Summer"
+            "FirstName": "Shelley",
+            "LastName": "RATLIFF",
+            "Company": "nin10do",
+            "Email": "shelley_ratliff@nin10do.com"
         },
         {
-            "Name": "FRANKLIN Aisha"
+            "FirstName": "Foster",
+            "LastName": "HERRING",
+            "Company": "nin10do",
+            "Email": "foster_herring@nin10do.com"
         },
         {
-            "Name": "FRANKLIN Aisha"
+            "FirstName": "Rowe",
+            "LastName": "LARA",
+            "Company": "nin10do",
+            "Email": "rowe_lara@nin10do.com"
         },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          },
-          {
-              "Name": "FRANKLIN Aisha"
-          }
+        {
+            "FirstName": "Betsy",
+            "LastName": "WILDER",
+            "Company": "nin10do",
+            "Email": "betsy_wilder@nin10do.com"
+        }
       ],
       "State": "Completed"
-  }];
+  }
+];
     var projservice = {};
 
     projservice.GetAll = function ()

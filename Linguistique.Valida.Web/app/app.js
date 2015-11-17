@@ -1,11 +1,14 @@
 ﻿'use strict';
-var app = angular.module('LangValApp', ['ngRoute', 'ngResource', 'ngMaterial', 'ngMessages', 'chieffancypants.loadingBar', 'md.data.table']);
+var app = angular.module('LangValApp', ['ngRoute', 'ngResource', 'ngMaterial', 'ngMessages', 'angular-loading-bar', 'ngAnimate', 'chieffancypants.loadingBar', 'md.data.table']);
 
-app.config(function ($mdThemingProvider, $routeProvider)
+app.config(function ($mdThemingProvider, $routeProvider, cfpLoadingBarProvider)
 {
     // Configure a dark theme with primary foreground yellow
     $mdThemingProvider.theme('docs-dark', 'default')
       .primaryPalette('orange').dark();
+
+    cfpLoadingBarProvider.includeSpinner = false;
+    cfpLoadingBarProvider.includeBar = true;
 
     $routeProvider.when("/Projects", {
         controller: "ProjectsController",

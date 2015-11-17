@@ -1,7 +1,7 @@
 ﻿<md-content>
     <!--<tr class="md-1-line" ng-repeat="project in projects">
             <td>{{ project.ProjectName }}</td>
-            <td>{{ project.ManagerName }}</td>
+            <td>{{ project.Manager.FirstName + ' ' + project.Manager.LastName}}</td>
             <td>{{ project.duration }}</td>
             <td>{{ project.participants }}</td>
             <td>{{ project.state }}</td>
@@ -9,7 +9,7 @@
     <md-data-table-toolbar>
         <h2 class="md-title">Projects</h2>
         <span flex></span>
-        <md-button  ng-click="createProject()" style="margin-right:20px;">
+        <md-button ng-click="createProject()" style="margin-right:20px;">
             <div class="fa fa-pencil"></div>  Create a new Project
         </md-button>
     </md-data-table-toolbar>
@@ -21,8 +21,8 @@
             <!--<thead md-order="query.order" md-trigger="onOrderChange">-->
             <thead md-order="order">
                 <tr>
-                    <th name="ProjectName" order-by="ProjectName"></th>
-                    <th name="ManagerName" order-by="ManagerName"></th>
+                    <th name="Project Name" order-by="Name"></th>
+                    <th name="Manager Name" order-by="Manager.FirstName"></th>
                     <th name="From" order-by="FromDate"></th>
                     <th name="To" order-by="ToDate"></th>
                     <th name="Participants" order-by="Participants.length"></th>
@@ -30,12 +30,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr md-auto-select ng-repeat="project in projects | orderBy: order">
+                <tr ng-repeat="project in projects | orderBy: order">
                     <td>
-                        <md-button ng-href="#/Project/{{project._id}}">{{ project.ProjectName }}</md-button>
-                         <!--<a href="#/projects/{{project._id}}"></a>-->
+                        <md-button ng-href="#/Project/{{project._id}}">{{ project.Name }}</md-button>
+                        <!--<a href="#/projects/{{project._id}}"></a>-->
                     </td>
-                    <td>{{ project.ManagerName }}</td>
+                    <td>
+                        <md-button ng-click="SendMail(project.Manager.Email,project.Name)">{{ project.Manager.FirstName + ' ' + project.Manager.LastName }}</md-button>
+                    </td>
                     <td>{{ formatDate(project.FromDate) |  date:"yyyy/MM/dd" }}</td>
                     <td>{{ formatDate(project.ToDate) |  date:"yyyy/MM/dd" }}</td>
                     <td>{{ project.Participants.length }}</td>
