@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Linguistique.Valida.Data.Entities
 {
-    public class eArea
+    class eFile
     {
-        public eArea()
+        public eFile()
         {
-
+                
         }
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string UID { get; set; }
+
+        public FileInfo File_Info { get; set; }
     }
 }

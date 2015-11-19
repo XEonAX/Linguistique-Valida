@@ -13,10 +13,9 @@ namespace Linguistique.Valida.Data.Entities
             Requirements = new List<eRequirement>();
             Defects = new List<eDefect>();
             Manager = new eUser();
-            Particpants = new List<eUser>();
+            Participants  = new List<eUser>();
             Steamers = new List<eUser>();
             ITers = new List<eUser>();
-            Particpants = new List<eUser>();
             Partners =new List<eUser>();
             Brands = new List<eBrand>();
             Languages = new List<eLanguage>();
@@ -30,10 +29,11 @@ namespace Linguistique.Valida.Data.Entities
         public DateTime ToDate { get; set; }
 
         public eUser Manager { get; set; }
+        public eRelease Release { get; set; }
 
         public ICollection<eRequirement> Requirements { get; set; }
         public ICollection<eDefect> Defects { get; set; }
-        public ICollection<eUser> Particpants { get; set; }
+        public ICollection<eUser> Participants { get; set; }
         public ICollection<eUser> Steamers { get; set; }
         public ICollection<eUser> ITers { get; set; }
         public ICollection<eUser> Partners { get; set; }

@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace Linguistique.Valida.Data.Entities
 {
-    public class eRole
+    public class eLicense
     {
-        public eRole()
+        public eLicense()
         {
 
         }
         public int Id { get; set; }
         public string Name { get; set; }
         public string UID { get; set; }
-        public string Type { get; set; }
     }
 }

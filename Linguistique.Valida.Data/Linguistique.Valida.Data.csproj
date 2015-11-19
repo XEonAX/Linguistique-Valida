@@ -53,12 +53,16 @@
     <Compile Include="Entities\eArea.cs" />
     <Compile Include="Entities\eBrand.cs" />
     <Compile Include="Entities\eDefect.cs" />
+    <Compile Include="Entities\eFile.cs" />
     <Compile Include="Entities\eLanguage.cs" />
+    <Compile Include="Entities\eLicense.cs" />
+    <Compile Include="Entities\eMedia.cs" />
     <Compile Include="Entities\eProject.cs" />
     <Compile Include="Entities\eRelease.cs" />
     <Compile Include="Entities\eRequirement.cs" />
     <Compile Include="Entities\eRole.cs" />
     <Compile Include="Entities\eUser.cs" />
+    <Compile Include="Mappers\ProjectMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
