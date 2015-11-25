@@ -26,7 +26,7 @@
     <link href="Content/Site.css" rel="stylesheet" />
 
 
-    <div id="page">
+    <div id="page" layout="column">
         <md-toolbar ng-controller="HeaderController">
             <div class="md-toolbar-tools md-warn">
                 <md-button ng-href="#/" class="headerbutton">
@@ -47,11 +47,18 @@
                 <md-button>Action 2</md-button>
             </md-card-actions>-->
         </md-card>
-
+        <div flex></div>
         <footer class="container">
-            Created by AEonAX: <a href="http://twitter.com/AEonAX" target="_blank">@AEonAX</a>
-
-            AEonAX's Blog: <a href="http://www.AEonAX.com" target="_blank">AEonAX.com</a>
+            <md-card>
+                <md-card-content layout="row" layout-align="space-between center">
+                    <div layout="row" layout-align="center center">
+                        <div>Created by </div><md-button class="md-primary" ng-href="http://www.AEonAX.com" target="_blank" style="height:20px">AEonAX</md-button>
+                    </div>
+                    <div layout="row" layout-align="center center">
+                        <div>Hosted on</div><md-button class="md-primary" ng-href="https://github.com/XEonAX/Linguistique-Valida" target="_blank"><div class="fa fa-github"></div> Github</md-button>
+                    </div>
+                </md-card-content>
+            </md-card>
         </footer>
     </div>
 

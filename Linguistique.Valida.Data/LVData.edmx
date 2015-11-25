@@ -1,0 +1,1888 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LVData.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="LVDataStoreContainer">
+    <EntitySet Name="Projects" EntityType="LVData.Store.Projects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Requirements" EntityType="LVData.Store.Requirements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Defects" EntityType="LVData.Store.Defects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="LVData.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Brands" EntityType="LVData.Store.Brands" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Releases" EntityType="LVData.Store.Releases" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Media" EntityType="LVData.Store.Media" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="LVData.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Applications" EntityType="LVData.Store.Applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Licenses" EntityType="LVData.Store.Licenses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Areas" EntityType="LVData.Store.Areas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Files" EntityType="LVData.Store.Files" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Languages" EntityType="LVData.Store.Languages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Severities" EntityType="LVData.Store.Severities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Categories" EntityType="LVData.Store.Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Status" EntityType="LVData.Store.Status" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectBrand" EntityType="LVData.Store.ProjectBrand" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectLanguage" EntityType="LVData.Store.ProjectLanguage" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectSteamers" EntityType="LVData.Store.ProjectSteamers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectITers" EntityType="LVData.Store.ProjectITers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectPartners" EntityType="LVData.Store.ProjectPartners" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectParticipants" EntityType="LVData.Store.ProjectParticipants" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RequirementClientSettingsFiles" EntityType="LVData.Store.RequirementClientSettingsFiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RequirementServerSettingsFiles" EntityType="LVData.Store.RequirementServerSettingsFiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RequirementLicense" EntityType="LVData.Store.RequirementLicense" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RequirementRole" EntityType="LVData.Store.RequirementRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RequirementArea" EntityType="LVData.Store.RequirementArea" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DefectFileDescriptionFiles" EntityType="LVData.Store.DefectFileDescriptionFiles" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ProjectRequirement" Association="LVData.Store.ProjectRequirement">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="Requirement" EntitySet="Requirements" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectDefect" Association="LVData.Store.ProjectDefect">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="Defect" EntitySet="Defects" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectManagerUser" Association="LVData.Store.ProjectManagerUser">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectBrand_Project" Association="LVData.Store.FK_ProjectBrand_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="ProjectBrand" EntitySet="ProjectBrand" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectBrand_Brand" Association="LVData.Store.FK_ProjectBrand_Brand">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="ProjectBrand" EntitySet="ProjectBrand" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectLanguage_Project" Association="LVData.Store.FK_ProjectLanguage_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="ProjectLanguage" EntitySet="ProjectLanguage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectLanguage_Language" Association="LVData.Store.FK_ProjectLanguage_Language">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="ProjectLanguage" EntitySet="ProjectLanguage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectSteamers_Project" Association="LVData.Store.FK_ProjectSteamers_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="ProjectSteamers" EntitySet="ProjectSteamers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectSteamers_User" Association="LVData.Store.FK_ProjectSteamers_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ProjectSteamers" EntitySet="ProjectSteamers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectITers_Project" Association="LVData.Store.FK_ProjectITers_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="ProjectITers" EntitySet="ProjectITers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectITers_User" Association="LVData.Store.FK_ProjectITers_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ProjectITers" EntitySet="ProjectITers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectPartners_Project" Association="LVData.Store.FK_ProjectPartners_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="ProjectPartners" EntitySet="ProjectPartners" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectPartners_User" Association="LVData.Store.FK_ProjectPartners_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ProjectPartners" EntitySet="ProjectPartners" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectRelease" Association="LVData.Store.ProjectRelease">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="Release" EntitySet="Releases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectParticipants_Project" Association="LVData.Store.FK_ProjectParticipants_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="ProjectParticipants" EntitySet="ProjectParticipants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectParticipants_User" Association="LVData.Store.FK_ProjectParticipants_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ProjectParticipants" EntitySet="ProjectParticipants" />
+    </AssociationSet>
+    <AssociationSet Name="RequirementBrand" Association="LVData.Store.RequirementBrand">
+      <End Role="Requirement" EntitySet="Requirements" />
+      <End Role="Brand" EntitySet="Brands" />
+    </AssociationSet>
+    <AssociationSet Name="RequirementApplication" Association="LVData.Store.RequirementApplication">
+      <End Role="Requirement" EntitySet="Requirements" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="RequirementTLead" Association="LVData.Store.RequirementTLead">
+      <End Role="Requirement" EntitySet="Requirements" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="RequirementResponsibleUser" Association="LVData.Store.RequirementResponsibleUser">
+      <End Role="Requirement" EntitySet="Requirements" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="RequirementMedia" Association="LVData.Store.RequirementMedia">
+      <End Role="Requirement" EntitySet="Requirements" />
+      <End Role="Media" EntitySet="Media" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementClientSettingsFiles_Requirement" Association="LVData.Store.FK_RequirementClientSettingsFiles_Requirement">
+      <End Role="Requirement" EntitySet="Requirements" />
+      <End Role="RequirementClientSettingsFiles" EntitySet="RequirementClientSettingsFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementClientSettingsFiles_File" Association="LVData.Store.FK_RequirementClientSettingsFiles_File">
+      <End Role="File" EntitySet="Files" />
+      <End Role="RequirementClientSettingsFiles" EntitySet="RequirementClientSettingsFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementServerSettingsFiles_Requirement" Association="LVData.Store.FK_RequirementServerSettingsFiles_Requirement">
+      <End Role="Requirement" EntitySet="Requirements" />
+      <End Role="RequirementServerSettingsFiles" EntitySet="RequirementServerSettingsFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementServerSettingsFiles_File" Association="LVData.Store.FK_RequirementServerSettingsFiles_File">
+      <End Role="File" EntitySet="Files" />
+      <End Role="RequirementServerSettingsFiles" EntitySet="RequirementServerSettingsFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementLicense_Requirement" Association="LVData.Store.FK_RequirementLicense_Requirement">
+      <End Role="Requirement" EntitySet="Requirements" />
+      <End Role="RequirementLicense" EntitySet="RequirementLicense" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementLicense_License" Association="LVData.Store.FK_RequirementLicense_License">
+      <End Role="License" EntitySet="Licenses" />
+      <End Role="RequirementLicense" EntitySet="RequirementLicense" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementRole_Requirement" Association="LVData.Store.FK_RequirementRole_Requirement">
+      <End Role="Requirement" EntitySet="Requirements" />
+      <End Role="RequirementRole" EntitySet="RequirementRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementRole_Role" Association="LVData.Store.FK_RequirementRole_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="RequirementRole" EntitySet="RequirementRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementArea_Requirement" Association="LVData.Store.FK_RequirementArea_Requirement">
+      <End Role="Requirement" EntitySet="Requirements" />
+      <End Role="RequirementArea" EntitySet="RequirementArea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequirementArea_Area" Association="LVData.Store.FK_RequirementArea_Area">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="RequirementArea" EntitySet="RequirementArea" />
+    </AssociationSet>
+    <AssociationSet Name="FileRequirementScenarioPPT" Association="LVData.Store.FileRequirementScenarioPPT">
+      <End Role="Requirement" EntitySet="Requirements" />
+      <End Role="File" EntitySet="Files" />
+    </AssociationSet>
+    <AssociationSet Name="DefectBrand" Association="LVData.Store.DefectBrand">
+      <End Role="Defect" EntitySet="Defects" />
+      <End Role="Brand" EntitySet="Brands" />
+    </AssociationSet>
+    <AssociationSet Name="DefectLanguage" Association="LVData.Store.DefectLanguage">
+      <End Role="Defect" EntitySet="Defects" />
+      <End Role="Language" EntitySet="Languages" />
+    </AssociationSet>
+    <AssociationSet Name="DefectUserApplicationEngg" Association="LVData.Store.DefectUserApplicationEngg">
+      <End Role="Defect" EntitySet="Defects" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="DefectUserLinguist" Association="LVData.Store.DefectUserLinguist">
+      <End Role="Defect" EntitySet="Defects" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="DefectApplication" Association="LVData.Store.DefectApplication">
+      <End Role="Defect" EntitySet="Defects" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DefectFileDescriptionFiles_Defect" Association="LVData.Store.FK_DefectFileDescriptionFiles_Defect">
+      <End Role="Defect" EntitySet="Defects" />
+      <End Role="DefectFileDescriptionFiles" EntitySet="DefectFileDescriptionFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DefectFileDescriptionFiles_File" Association="LVData.Store.FK_DefectFileDescriptionFiles_File">
+      <End Role="File" EntitySet="Files" />
+      <End Role="DefectFileDescriptionFiles" EntitySet="DefectFileDescriptionFiles" />
+    </AssociationSet>
+    <AssociationSet Name="SeverityDefect" Association="LVData.Store.SeverityDefect">
+      <End Role="Defect" EntitySet="Defects" />
+      <End Role="Severity" EntitySet="Severities" />
+    </AssociationSet>
+    <AssociationSet Name="DefectCategory" Association="LVData.Store.DefectCategory">
+      <End Role="Defect" EntitySet="Defects" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="DefectStatus" Association="LVData.Store.DefectStatus">
+      <End Role="Defect" EntitySet="Defects" />
+      <End Role="Status" EntitySet="Status" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IDCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FromDate" Type="datetime" Nullable="false" />
+    <Property Name="ToDate" Type="datetime" Nullable="false" />
+    <Property Name="Manager_Id" Type="int" Nullable="false" />
+    <Property Name="Release_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Requirements">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientSettings" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CommonServer" Type="bit" Nullable="false" />
+    <Property Name="CommonServerReason" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ServerSettings" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MiscSettings" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ScenarioWorking" Type="bit" Nullable="false" />
+    <Property Name="SlidesCount" Type="int" Nullable="false" />
+    <Property Name="ExecutionTimeQA" Type="float" Nullable="false" />
+    <Property Name="ExecutionTimeEngg" Type="float" Nullable="false" />
+    <Property Name="ProjectId" Type="int" Nullable="false" />
+    <Property Name="BrandId" Type="int" Nullable="false" />
+    <Property Name="ApplicationId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="UserId1" Type="int" Nullable="false" />
+    <Property Name="MediaId" Type="int" Nullable="false" />
+    <Property Name="FileId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Defects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Abstract" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SlideNo" Type="int" Nullable="false" />
+    <Property Name="TaskNo" Type="int" Nullable="false" />
+    <Property Name="SourceText" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TargetText" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContextRequired" Type="bit" Nullable="false" />
+    <Property Name="SuggestionText" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LinguistCorrection" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CommentQA" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectId" Type="int" Nullable="false" />
+    <Property Name="BrandId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="UserId1" Type="int" Nullable="false" />
+    <Property Name="ApplicationId" Type="int" Nullable="false" />
+    <Property Name="SeverityId" Type="int" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IDCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Brands">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Releases">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IDCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Media">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IDCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IDCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Licenses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IDCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Areas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Files">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Path" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Severities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectBrand">
+    <Key>
+      <PropertyRef Name="Projects_Id" />
+      <PropertyRef Name="Brands_Id" />
+    </Key>
+    <Property Name="Projects_Id" Type="int" Nullable="false" />
+    <Property Name="Brands_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectLanguage">
+    <Key>
+      <PropertyRef Name="Projects_Id" />
+      <PropertyRef Name="Languages_Id" />
+    </Key>
+    <Property Name="Projects_Id" Type="int" Nullable="false" />
+    <Property Name="Languages_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectSteamers">
+    <Key>
+      <PropertyRef Name="ProjectsSteamers_Id" />
+      <PropertyRef Name="Steamers_Id" />
+    </Key>
+    <Property Name="ProjectsSteamers_Id" Type="int" Nullable="false" />
+    <Property Name="Steamers_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectITers">
+    <Key>
+      <PropertyRef Name="ProjectsITers_Id" />
+      <PropertyRef Name="ITers_Id" />
+    </Key>
+    <Property Name="ProjectsITers_Id" Type="int" Nullable="false" />
+    <Property Name="ITers_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectPartners">
+    <Key>
+      <PropertyRef Name="ProjectsPartners_Id" />
+      <PropertyRef Name="Partners_Id" />
+    </Key>
+    <Property Name="ProjectsPartners_Id" Type="int" Nullable="false" />
+    <Property Name="Partners_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectParticipants">
+    <Key>
+      <PropertyRef Name="ProjectsParticipants_Id" />
+      <PropertyRef Name="Participants_Id" />
+    </Key>
+    <Property Name="ProjectsParticipants_Id" Type="int" Nullable="false" />
+    <Property Name="Participants_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequirementClientSettingsFiles">
+    <Key>
+      <PropertyRef Name="RequirementsClientSettings_Id" />
+      <PropertyRef Name="ClientSettingsFiles_Id" />
+    </Key>
+    <Property Name="RequirementsClientSettings_Id" Type="int" Nullable="false" />
+    <Property Name="ClientSettingsFiles_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequirementServerSettingsFiles">
+    <Key>
+      <PropertyRef Name="RequirementsServerSettings_Id" />
+      <PropertyRef Name="ServerSettingsFiles_Id" />
+    </Key>
+    <Property Name="RequirementsServerSettings_Id" Type="int" Nullable="false" />
+    <Property Name="ServerSettingsFiles_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequirementLicense">
+    <Key>
+      <PropertyRef Name="Requirements_Id" />
+      <PropertyRef Name="Licenses_Id" />
+    </Key>
+    <Property Name="Requirements_Id" Type="int" Nullable="false" />
+    <Property Name="Licenses_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequirementRole">
+    <Key>
+      <PropertyRef Name="Requirements_Id" />
+      <PropertyRef Name="Roles_Id" />
+    </Key>
+    <Property Name="Requirements_Id" Type="int" Nullable="false" />
+    <Property Name="Roles_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequirementArea">
+    <Key>
+      <PropertyRef Name="Requirements_Id" />
+      <PropertyRef Name="Areas_Id" />
+    </Key>
+    <Property Name="Requirements_Id" Type="int" Nullable="false" />
+    <Property Name="Areas_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DefectFileDescriptionFiles">
+    <Key>
+      <PropertyRef Name="DefectsDescriptionFiles_Id" />
+      <PropertyRef Name="DescriptionFiles_Id" />
+    </Key>
+    <Property Name="DefectsDescriptionFiles_Id" Type="int" Nullable="false" />
+    <Property Name="DescriptionFiles_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ProjectRequirement">
+    <End Role="Project" Type="LVData.Store.Projects" Multiplicity="1" />
+    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requirement">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectDefect">
+    <End Role="Project" Type="LVData.Store.Projects" Multiplicity="1" />
+    <End Role="Defect" Type="LVData.Store.Defects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Defect">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectManagerUser">
+    <End Role="Project" Type="LVData.Store.Projects" Multiplicity="*" />
+    <End Role="User" Type="LVData.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="Manager_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectRelease">
+    <End Role="Project" Type="LVData.Store.Projects" Multiplicity="*" />
+    <End Role="Release" Type="LVData.Store.Releases" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RequirementBrand">
+    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="*" />
+    <End Role="Brand" Type="LVData.Store.Brands" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requirement">
+        <PropertyRef Name="BrandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RequirementApplication">
+    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="*" />
+    <End Role="Application" Type="LVData.Store.Applications" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requirement">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RequirementTLead">
+    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="*" />
+    <End Role="User" Type="LVData.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requirement">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RequirementResponsibleUser">
+    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="*" />
+    <End Role="User" Type="LVData.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requirement">
+        <PropertyRef Name="UserId1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RequirementMedia">
+    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="*" />
+    <End Role="Media" Type="LVData.Store.Media" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Media">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requirement">
+        <PropertyRef Name="MediaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FileRequirementScenarioPPT">
+    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="*" />
+    <End Role="File" Type="LVData.Store.Files" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requirement">
+        <PropertyRef Name="FileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DefectBrand">
+    <End Role="Defect" Type="LVData.Store.Defects" Multiplicity="*" />
+    <End Role="Brand" Type="LVData.Store.Brands" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Defect">
+        <PropertyRef Name="BrandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DefectLanguage">
+    <End Role="Defect" Type="LVData.Store.Defects" Multiplicity="*" />
+    <End Role="Language" Type="LVData.Store.Languages" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Defect">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DefectUserApplicationEngg">
+    <End Role="Defect" Type="LVData.Store.Defects" Multiplicity="*" />
+    <End Role="User" Type="LVData.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Defect">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DefectUserLinguist">
+    <End Role="Defect" Type="LVData.Store.Defects" Multiplicity="*" />
+    <End Role="User" Type="LVData.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Defect">
+        <PropertyRef Name="UserId1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DefectApplication">
+    <End Role="Defect" Type="LVData.Store.Defects" Multiplicity="*" />
+    <End Role="Application" Type="LVData.Store.Applications" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Defect">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SeverityDefect">
+    <End Role="Defect" Type="LVData.Store.Defects" Multiplicity="*" />
+    <End Role="Severity" Type="LVData.Store.Severities" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Severity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Defect">
+        <PropertyRef Name="SeverityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DefectCategory">
+    <End Role="Defect" Type="LVData.Store.Defects" Multiplicity="*" />
+    <End Role="Category" Type="LVData.Store.Categories" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Defect">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DefectStatus">
+    <End Role="Defect" Type="LVData.Store.Defects" Multiplicity="*" />
+    <End Role="Status" Type="LVData.Store.Status" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Defect">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectBrand_Project">
+    <End Role="Project" Type="LVData.Store.Projects" Multiplicity="1" />
+    <End Role="ProjectBrand" Type="LVData.Store.ProjectBrand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectBrand">
+        <PropertyRef Name="Projects_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectBrand_Brand">
+    <End Role="ProjectBrand" Type="LVData.Store.ProjectBrand" Multiplicity="*" />
+    <End Role="Brand" Type="LVData.Store.Brands" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectBrand">
+        <PropertyRef Name="Brands_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectLanguage_Project">
+    <End Role="Project" Type="LVData.Store.Projects" Multiplicity="1" />
+    <End Role="ProjectLanguage" Type="LVData.Store.ProjectLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectLanguage">
+        <PropertyRef Name="Projects_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectLanguage_Language">
+    <End Role="ProjectLanguage" Type="LVData.Store.ProjectLanguage" Multiplicity="*" />
+    <End Role="Language" Type="LVData.Store.Languages" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectLanguage">
+        <PropertyRef Name="Languages_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectSteamers_Project">
+    <End Role="Project" Type="LVData.Store.Projects" Multiplicity="1" />
+    <End Role="ProjectSteamers" Type="LVData.Store.ProjectSteamers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectSteamers">
+        <PropertyRef Name="ProjectsSteamers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectSteamers_User">
+    <End Role="ProjectSteamers" Type="LVData.Store.ProjectSteamers" Multiplicity="*" />
+    <End Role="User" Type="LVData.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectSteamers">
+        <PropertyRef Name="Steamers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectITers_Project">
+    <End Role="Project" Type="LVData.Store.Projects" Multiplicity="1" />
+    <End Role="ProjectITers" Type="LVData.Store.ProjectITers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectITers">
+        <PropertyRef Name="ProjectsITers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectITers_User">
+    <End Role="ProjectITers" Type="LVData.Store.ProjectITers" Multiplicity="*" />
+    <End Role="User" Type="LVData.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectITers">
+        <PropertyRef Name="ITers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectPartners_Project">
+    <End Role="Project" Type="LVData.Store.Projects" Multiplicity="1" />
+    <End Role="ProjectPartners" Type="LVData.Store.ProjectPartners" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectPartners">
+        <PropertyRef Name="ProjectsPartners_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectPartners_User">
+    <End Role="ProjectPartners" Type="LVData.Store.ProjectPartners" Multiplicity="*" />
+    <End Role="User" Type="LVData.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectPartners">
+        <PropertyRef Name="Partners_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectParticipants_Project">
+    <End Role="Project" Type="LVData.Store.Projects" Multiplicity="1" />
+    <End Role="ProjectParticipants" Type="LVData.Store.ProjectParticipants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectParticipants">
+        <PropertyRef Name="ProjectsParticipants_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectParticipants_User">
+    <End Role="ProjectParticipants" Type="LVData.Store.ProjectParticipants" Multiplicity="*" />
+    <End Role="User" Type="LVData.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectParticipants">
+        <PropertyRef Name="Participants_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementClientSettingsFiles_Requirement">
+    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="1" />
+    <End Role="RequirementClientSettingsFiles" Type="LVData.Store.RequirementClientSettingsFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requirement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequirementClientSettingsFiles">
+        <PropertyRef Name="RequirementsClientSettings_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementClientSettingsFiles_File">
+    <End Role="RequirementClientSettingsFiles" Type="LVData.Store.RequirementClientSettingsFiles" Multiplicity="*" />
+    <End Role="File" Type="LVData.Store.Files" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequirementClientSettingsFiles">
+        <PropertyRef Name="ClientSettingsFiles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementServerSettingsFiles_Requirement">
+    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="1" />
+    <End Role="RequirementServerSettingsFiles" Type="LVData.Store.RequirementServerSettingsFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requirement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequirementServerSettingsFiles">
+        <PropertyRef Name="RequirementsServerSettings_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementServerSettingsFiles_File">
+    <End Role="RequirementServerSettingsFiles" Type="LVData.Store.RequirementServerSettingsFiles" Multiplicity="*" />
+    <End Role="File" Type="LVData.Store.Files" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequirementServerSettingsFiles">
+        <PropertyRef Name="ServerSettingsFiles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementLicense_Requirement">
+    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="1" />
+    <End Role="RequirementLicense" Type="LVData.Store.RequirementLicense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requirement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequirementLicense">
+        <PropertyRef Name="Requirements_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementLicense_License">
+    <End Role="RequirementLicense" Type="LVData.Store.RequirementLicense" Multiplicity="*" />
+    <End Role="License" Type="LVData.Store.Licenses" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="License">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequirementLicense">
+        <PropertyRef Name="Licenses_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementRole_Requirement">
+    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="1" />
+    <End Role="RequirementRole" Type="LVData.Store.RequirementRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requirement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequirementRole">
+        <PropertyRef Name="Requirements_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementRole_Role">
+    <End Role="RequirementRole" Type="LVData.Store.RequirementRole" Multiplicity="*" />
+    <End Role="Role" Type="LVData.Store.Roles" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequirementRole">
+        <PropertyRef Name="Roles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementArea_Requirement">
+    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="1" />
+    <End Role="RequirementArea" Type="LVData.Store.RequirementArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requirement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequirementArea">
+        <PropertyRef Name="Requirements_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequirementArea_Area">
+    <End Role="RequirementArea" Type="LVData.Store.RequirementArea" Multiplicity="*" />
+    <End Role="Area" Type="LVData.Store.Areas" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequirementArea">
+        <PropertyRef Name="Areas_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DefectFileDescriptionFiles_Defect">
+    <End Role="Defect" Type="LVData.Store.Defects" Multiplicity="1" />
+    <End Role="DefectFileDescriptionFiles" Type="LVData.Store.DefectFileDescriptionFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Defect">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DefectFileDescriptionFiles">
+        <PropertyRef Name="DefectsDescriptionFiles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DefectFileDescriptionFiles_File">
+    <End Role="DefectFileDescriptionFiles" Type="LVData.Store.DefectFileDescriptionFiles" Multiplicity="*" />
+    <End Role="File" Type="LVData.Store.Files" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DefectFileDescriptionFiles">
+        <PropertyRef Name="DescriptionFiles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="LVData" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="LVDataContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Projects" EntityType="LVData.Project" />
+          <EntitySet Name="Requirements" EntityType="LVData.Requirement" />
+          <EntitySet Name="Defects" EntityType="LVData.Defect" />
+          <EntitySet Name="Users" EntityType="LVData.User" />
+          <EntitySet Name="Brands" EntityType="LVData.Brand" />
+          <EntitySet Name="Releases" EntityType="LVData.Release" />
+          <EntitySet Name="Media" EntityType="LVData.Media" />
+          <EntitySet Name="Roles" EntityType="LVData.Role" />
+          <EntitySet Name="Applications" EntityType="LVData.Application" />
+          <EntitySet Name="Licenses" EntityType="LVData.License" />
+          <EntitySet Name="Areas" EntityType="LVData.Area" />
+          <EntitySet Name="Files" EntityType="LVData.File" />
+          <EntitySet Name="Languages" EntityType="LVData.Language" />
+          <AssociationSet Name="ProjectRequirement" Association="LVData.ProjectRequirement">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Requirement" EntitySet="Requirements" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectDefect" Association="LVData.ProjectDefect">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Defect" EntitySet="Defects" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectManagerUser" Association="LVData.ProjectManagerUser">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectBrand" Association="LVData.ProjectBrand">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Brand" EntitySet="Brands" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectLanguage" Association="LVData.ProjectLanguage">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Language" EntitySet="Languages" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectSteamers" Association="LVData.ProjectSteamers">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectITers" Association="LVData.ProjectITers">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectPartners" Association="LVData.ProjectPartners">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectRelease" Association="LVData.ProjectRelease">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Release" EntitySet="Releases" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectParticipants" Association="LVData.ProjectParticipants">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="RequirementBrand" Association="LVData.RequirementBrand">
+            <End Role="Requirement" EntitySet="Requirements" />
+            <End Role="Brand" EntitySet="Brands" />
+          </AssociationSet>
+          <AssociationSet Name="RequirementApplication" Association="LVData.RequirementApplication">
+            <End Role="Requirement" EntitySet="Requirements" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="RequirementTLead" Association="LVData.RequirementTLead">
+            <End Role="Requirement" EntitySet="Requirements" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="RequirementResponsibleUser" Association="LVData.RequirementResponsibleUser">
+            <End Role="Requirement" EntitySet="Requirements" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="RequirementMedia" Association="LVData.RequirementMedia">
+            <End Role="Requirement" EntitySet="Requirements" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="RequirementClientSettingsFiles" Association="LVData.RequirementClientSettingsFiles">
+            <End Role="Requirement" EntitySet="Requirements" />
+            <End Role="File" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="RequirementServerSettingsFiles" Association="LVData.RequirementServerSettingsFiles">
+            <End Role="Requirement" EntitySet="Requirements" />
+            <End Role="File" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="RequirementLicense" Association="LVData.RequirementLicense">
+            <End Role="Requirement" EntitySet="Requirements" />
+            <End Role="License" EntitySet="Licenses" />
+          </AssociationSet>
+          <AssociationSet Name="RequirementRole" Association="LVData.RequirementRole">
+            <End Role="Requirement" EntitySet="Requirements" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="RequirementArea" Association="LVData.RequirementArea">
+            <End Role="Requirement" EntitySet="Requirements" />
+            <End Role="Area" EntitySet="Areas" />
+          </AssociationSet>
+          <AssociationSet Name="FileRequirementScenarioPPT" Association="LVData.FileRequirementScenarioPPT">
+            <End Role="Requirement" EntitySet="Requirements" />
+            <End Role="File" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="DefectBrand" Association="LVData.DefectBrand">
+            <End Role="Defect" EntitySet="Defects" />
+            <End Role="Brand" EntitySet="Brands" />
+          </AssociationSet>
+          <AssociationSet Name="DefectLanguage" Association="LVData.DefectLanguage">
+            <End Role="Defect" EntitySet="Defects" />
+            <End Role="Language" EntitySet="Languages" />
+          </AssociationSet>
+          <AssociationSet Name="DefectUserApplicationEngg" Association="LVData.DefectUserApplicationEngg">
+            <End Role="Defect" EntitySet="Defects" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="DefectUserLinguist" Association="LVData.DefectUserLinguist">
+            <End Role="Defect" EntitySet="Defects" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="DefectApplication" Association="LVData.DefectApplication">
+            <End Role="Defect" EntitySet="Defects" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="DefectFileDescriptionFiles" Association="LVData.DefectFileDescriptionFiles">
+            <End Role="Defect" EntitySet="Defects" />
+            <End Role="File" EntitySet="Files" />
+          </AssociationSet>
+          <EntitySet Name="Severities" EntityType="LVData.Severity" />
+          <EntitySet Name="Categories" EntityType="LVData.Category" />
+          <AssociationSet Name="SeverityDefect" Association="LVData.SeverityDefect">
+            <End Role="Defect" EntitySet="Defects" />
+            <End Role="Severity" EntitySet="Severities" />
+          </AssociationSet>
+          <AssociationSet Name="DefectCategory" Association="LVData.DefectCategory">
+            <End Role="Defect" EntitySet="Defects" />
+            <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <EntitySet Name="Status" EntityType="LVData.Status" />
+          <AssociationSet Name="DefectStatus" Association="LVData.DefectStatus">
+            <End Role="Defect" EntitySet="Defects" />
+            <End Role="Status" EntitySet="Status" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="IDCode" Type="String" Nullable="false" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Requirements" Relationship="LVData.ProjectRequirement" FromRole="Project" ToRole="Requirement" />
+          <NavigationProperty Name="Defects" Relationship="LVData.ProjectDefect" FromRole="Project" ToRole="Defect" />
+          <NavigationProperty Name="Manager" Relationship="LVData.ProjectManagerUser" FromRole="Project" ToRole="User" />
+          <NavigationProperty Name="Brands" Relationship="LVData.ProjectBrand" FromRole="Project" ToRole="Brand" />
+          <NavigationProperty Name="Languages" Relationship="LVData.ProjectLanguage" FromRole="Project" ToRole="Language" />
+          <NavigationProperty Name="Steamers" Relationship="LVData.ProjectSteamers" FromRole="Project" ToRole="User" />
+          <NavigationProperty Name="ITers" Relationship="LVData.ProjectITers" FromRole="Project" ToRole="User" />
+          <NavigationProperty Name="Partners" Relationship="LVData.ProjectPartners" FromRole="Project" ToRole="User" />
+          <NavigationProperty Name="Release" Relationship="LVData.ProjectRelease" FromRole="Project" ToRole="Release" />
+          <NavigationProperty Name="Participants" Relationship="LVData.ProjectParticipants" FromRole="Project" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Requirement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="ClientSettings" Type="String" Nullable="false" />
+          <Property Name="CommonServer" Type="Boolean" Nullable="false" />
+          <Property Name="CommonServerReason" Type="String" Nullable="false" />
+          <Property Name="ServerSettings" Type="String" Nullable="false" />
+          <Property Name="MiscSettings" Type="String" Nullable="false" />
+          <Property Name="ScenarioWorking" Type="Boolean" Nullable="false" />
+          <Property Name="SlidesCount" Type="Int32" Nullable="false" />
+          <Property Name="ExecutionTimeQA" Type="Double" Nullable="false" />
+          <Property Name="ExecutionTimeEngg" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="LVData.ProjectRequirement" FromRole="Requirement" ToRole="Project" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brand" Relationship="LVData.RequirementBrand" FromRole="Requirement" ToRole="Brand" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="LVData.RequirementApplication" FromRole="Requirement" ToRole="Application" />
+          <Property Name="ApplicationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TLead" Relationship="LVData.RequirementTLead" FromRole="Requirement" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Responsible" Relationship="LVData.RequirementResponsibleUser" FromRole="Requirement" ToRole="User" />
+          <Property Name="UserId1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Media" Relationship="LVData.RequirementMedia" FromRole="Requirement" ToRole="Media" />
+          <Property Name="MediaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClientSettingsFiles" Relationship="LVData.RequirementClientSettingsFiles" FromRole="Requirement" ToRole="File" />
+          <NavigationProperty Name="ServerSettingsFiles" Relationship="LVData.RequirementServerSettingsFiles" FromRole="Requirement" ToRole="File" />
+          <NavigationProperty Name="Licenses" Relationship="LVData.RequirementLicense" FromRole="Requirement" ToRole="License" />
+          <NavigationProperty Name="Roles" Relationship="LVData.RequirementRole" FromRole="Requirement" ToRole="Role" />
+          <NavigationProperty Name="Areas" Relationship="LVData.RequirementArea" FromRole="Requirement" ToRole="Area" />
+          <NavigationProperty Name="ScenarioPPT" Relationship="LVData.FileRequirementScenarioPPT" FromRole="Requirement" ToRole="File" />
+          <Property Name="FileId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Defect">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Abstract" Type="String" Nullable="false" Unicode="true" />
+          <Property Name="SlideNo" Type="Int32" Nullable="false" />
+          <Property Name="TaskNo" Type="Int32" Nullable="false" />
+          <Property Name="SourceText" Type="String" Nullable="false" Unicode="true" />
+          <Property Name="TargetText" Type="String" Nullable="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" Unicode="true" />
+          <Property Name="ContextRequired" Type="Boolean" Nullable="false" />
+          <Property Name="SuggestionText" Type="String" Nullable="false" Unicode="true" />
+          <Property Name="LinguistCorrection" Type="String" Nullable="false" Unicode="true" />
+          <Property Name="CommentQA" Type="String" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="LVData.ProjectDefect" FromRole="Defect" ToRole="Project" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brand" Relationship="LVData.DefectBrand" FromRole="Defect" ToRole="Brand" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Language" Relationship="LVData.DefectLanguage" FromRole="Defect" ToRole="Language" />
+          <Property Name="LanguageId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ApplicationEngg" Relationship="LVData.DefectUserApplicationEngg" FromRole="Defect" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Linguist" Relationship="LVData.DefectUserLinguist" FromRole="Defect" ToRole="User" />
+          <Property Name="UserId1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="LVData.DefectApplication" FromRole="Defect" ToRole="Application" />
+          <Property Name="ApplicationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DescriptionFiles" Relationship="LVData.DefectFileDescriptionFiles" FromRole="Defect" ToRole="File" />
+          <NavigationProperty Name="Severity" Relationship="LVData.SeverityDefect" FromRole="Defect" ToRole="Severity" />
+          <Property Name="SeverityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="LVData.DefectCategory" FromRole="Defect" ToRole="Category" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Status" Relationship="LVData.DefectStatus" FromRole="Defect" ToRole="Status" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="IDCode" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <NavigationProperty Name="ProjectsManager" Relationship="LVData.ProjectManagerUser" FromRole="User" ToRole="Project" />
+          <NavigationProperty Name="ProjectsSteamers" Relationship="LVData.ProjectSteamers" FromRole="User" ToRole="Project" />
+          <NavigationProperty Name="ProjectsITers" Relationship="LVData.ProjectITers" FromRole="User" ToRole="Project" />
+          <NavigationProperty Name="ProjectsPartners" Relationship="LVData.ProjectPartners" FromRole="User" ToRole="Project" />
+          <NavigationProperty Name="ProjectsParticipants" Relationship="LVData.ProjectParticipants" FromRole="User" ToRole="Project" />
+          <NavigationProperty Name="RequirementsTLead" Relationship="LVData.RequirementTLead" FromRole="User" ToRole="Requirement" />
+          <NavigationProperty Name="RequirementsResponsible" Relationship="LVData.RequirementResponsibleUser" FromRole="User" ToRole="Requirement" />
+          <NavigationProperty Name="DefectsApplicationEngg" Relationship="LVData.DefectUserApplicationEngg" FromRole="User" ToRole="Defect" />
+          <NavigationProperty Name="DefectsLinguist" Relationship="LVData.DefectUserLinguist" FromRole="User" ToRole="Defect" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCode" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Projects" Relationship="LVData.ProjectBrand" FromRole="Brand" ToRole="Project" />
+          <NavigationProperty Name="Requirements" Relationship="LVData.RequirementBrand" FromRole="Brand" ToRole="Requirement" />
+          <NavigationProperty Name="Defects" Relationship="LVData.DefectBrand" FromRole="Brand" ToRole="Defect" />
+        </EntityType>
+        <EntityType Name="Release">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="IDCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="ProjectsRelease" Relationship="LVData.ProjectRelease" FromRole="Release" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="Media">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="RequirementsMedia" Relationship="LVData.RequirementMedia" FromRole="Media" ToRole="Requirement" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="IDCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="Requirements" Relationship="LVData.RequirementRole" FromRole="Role" ToRole="Requirement" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="IDCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="Requirements" Relationship="LVData.RequirementApplication" FromRole="Application" ToRole="Requirement" />
+          <NavigationProperty Name="Defects" Relationship="LVData.DefectApplication" FromRole="Application" ToRole="Defect" />
+        </EntityType>
+        <EntityType Name="License">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="IDCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="Requirements" Relationship="LVData.RequirementLicense" FromRole="License" ToRole="Requirement" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="Requirements" Relationship="LVData.RequirementArea" FromRole="Area" ToRole="Requirement" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="RequirementsClientSettings" Relationship="LVData.RequirementClientSettingsFiles" FromRole="File" ToRole="Requirement" />
+          <NavigationProperty Name="RequirementsServerSettings" Relationship="LVData.RequirementServerSettingsFiles" FromRole="File" ToRole="Requirement" />
+          <NavigationProperty Name="RequirementsScenarioPPT" Relationship="LVData.FileRequirementScenarioPPT" FromRole="File" ToRole="Requirement" />
+          <NavigationProperty Name="DefectsDescriptionFiles" Relationship="LVData.DefectFileDescriptionFiles" FromRole="File" ToRole="Defect" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Path" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Projects" Relationship="LVData.ProjectLanguage" FromRole="Language" ToRole="Project" />
+          <NavigationProperty Name="Defects" Relationship="LVData.DefectLanguage" FromRole="Language" ToRole="Defect" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="ProjectRequirement">
+          <End Type="LVData.Project" Role="Project" Multiplicity="1" />
+          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Requirement">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProjectDefect">
+          <End Type="LVData.Project" Role="Project" Multiplicity="1" />
+          <End Type="LVData.Defect" Role="Defect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProjectManagerUser">
+          <End Type="LVData.Project" Role="Project" Multiplicity="*" />
+          <End Type="LVData.User" Role="User" Multiplicity="1" />
+        </Association>
+        <Association Name="ProjectBrand">
+          <End Type="LVData.Project" Role="Project" Multiplicity="*" />
+          <End Type="LVData.Brand" Role="Brand" Multiplicity="*" />
+        </Association>
+        <Association Name="ProjectLanguage">
+          <End Type="LVData.Project" Role="Project" Multiplicity="*" />
+          <End Type="LVData.Language" Role="Language" Multiplicity="*" />
+        </Association>
+        <Association Name="ProjectSteamers">
+          <End Type="LVData.Project" Role="Project" Multiplicity="*" />
+          <End Type="LVData.User" Role="User" Multiplicity="*" />
+        </Association>
+        <Association Name="ProjectITers">
+          <End Type="LVData.Project" Role="Project" Multiplicity="*" />
+          <End Type="LVData.User" Role="User" Multiplicity="*" />
+        </Association>
+        <Association Name="ProjectPartners">
+          <End Type="LVData.Project" Role="Project" Multiplicity="*" />
+          <End Type="LVData.User" Role="User" Multiplicity="*" />
+        </Association>
+        <Association Name="ProjectRelease">
+          <End Type="LVData.Project" Role="Project" Multiplicity="*" />
+          <End Type="LVData.Release" Role="Release" Multiplicity="1" />
+        </Association>
+        <Association Name="ProjectParticipants">
+          <End Type="LVData.Project" Role="Project" Multiplicity="*" />
+          <End Type="LVData.User" Role="User" Multiplicity="*" />
+        </Association>
+        <Association Name="RequirementBrand">
+          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
+          <End Type="LVData.Brand" Role="Brand" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Requirement">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RequirementApplication">
+          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
+          <End Type="LVData.Application" Role="Application" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Requirement">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RequirementTLead">
+          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
+          <End Type="LVData.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Requirement">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RequirementResponsibleUser">
+          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
+          <End Type="LVData.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Requirement">
+              <PropertyRef Name="UserId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RequirementMedia">
+          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
+          <End Type="LVData.Media" Role="Media" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Media">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Requirement">
+              <PropertyRef Name="MediaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RequirementClientSettingsFiles">
+          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
+          <End Type="LVData.File" Role="File" Multiplicity="*" />
+        </Association>
+        <Association Name="RequirementServerSettingsFiles">
+          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
+          <End Type="LVData.File" Role="File" Multiplicity="*" />
+        </Association>
+        <Association Name="RequirementLicense">
+          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
+          <End Type="LVData.License" Role="License" Multiplicity="*" />
+        </Association>
+        <Association Name="RequirementRole">
+          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
+          <End Type="LVData.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <Association Name="RequirementArea">
+          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
+          <End Type="LVData.Area" Role="Area" Multiplicity="*" />
+        </Association>
+        <Association Name="FileRequirementScenarioPPT">
+          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
+          <End Type="LVData.File" Role="File" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Requirement">
+              <PropertyRef Name="FileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DefectBrand">
+          <End Type="LVData.Defect" Role="Defect" Multiplicity="*" />
+          <End Type="LVData.Brand" Role="Brand" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DefectLanguage">
+          <End Type="LVData.Defect" Role="Defect" Multiplicity="*" />
+          <End Type="LVData.Language" Role="Language" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DefectUserApplicationEngg">
+          <End Type="LVData.Defect" Role="Defect" Multiplicity="*" />
+          <End Type="LVData.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DefectUserLinguist">
+          <End Type="LVData.Defect" Role="Defect" Multiplicity="*" />
+          <End Type="LVData.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="UserId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DefectApplication">
+          <End Type="LVData.Defect" Role="Defect" Multiplicity="*" />
+          <End Type="LVData.Application" Role="Application" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DefectFileDescriptionFiles">
+          <End Type="LVData.Defect" Role="Defect" Multiplicity="*" />
+          <End Type="LVData.File" Role="File" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Severity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Defects" Relationship="LVData.SeverityDefect" FromRole="Severity" ToRole="Defect" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Defects" Relationship="LVData.DefectCategory" FromRole="Category" ToRole="Defect" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="SeverityDefect">
+          <End Type="LVData.Defect" Role="Defect" Multiplicity="*" />
+          <End Type="LVData.Severity" Role="Severity" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Severity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="SeverityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DefectCategory">
+          <End Type="LVData.Defect" Role="Defect" Multiplicity="*" />
+          <End Type="LVData.Category" Role="Category" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Defects" Relationship="LVData.DefectStatus" FromRole="Status" ToRole="Defect" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="DefectStatus">
+          <End Type="LVData.Defect" Role="Defect" Multiplicity="*" />
+          <End Type="LVData.Status" Role="Status" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Defect">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LVDataStoreContainer" CdmEntityContainer="LVDataContainer">
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Project)">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IDCode" ColumnName="IDCode" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requirements">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Requirement)">
+        <MappingFragment StoreEntitySet="Requirements">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ClientSettings" ColumnName="ClientSettings" />
+          <ScalarProperty Name="CommonServer" ColumnName="CommonServer" />
+          <ScalarProperty Name="CommonServerReason" ColumnName="CommonServerReason" />
+          <ScalarProperty Name="ServerSettings" ColumnName="ServerSettings" />
+          <ScalarProperty Name="MiscSettings" ColumnName="MiscSettings" />
+          <ScalarProperty Name="ScenarioWorking" ColumnName="ScenarioWorking" />
+          <ScalarProperty Name="SlidesCount" ColumnName="SlidesCount" />
+          <ScalarProperty Name="ExecutionTimeQA" ColumnName="ExecutionTimeQA" />
+          <ScalarProperty Name="ExecutionTimeEngg" ColumnName="ExecutionTimeEngg" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserId1" ColumnName="UserId1" />
+          <ScalarProperty Name="MediaId" ColumnName="MediaId" />
+          <ScalarProperty Name="FileId" ColumnName="FileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Defects">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Defect)">
+        <MappingFragment StoreEntitySet="Defects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+          <ScalarProperty Name="SlideNo" ColumnName="SlideNo" />
+          <ScalarProperty Name="TaskNo" ColumnName="TaskNo" />
+          <ScalarProperty Name="SourceText" ColumnName="SourceText" />
+          <ScalarProperty Name="TargetText" ColumnName="TargetText" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ContextRequired" ColumnName="ContextRequired" />
+          <ScalarProperty Name="SuggestionText" ColumnName="SuggestionText" />
+          <ScalarProperty Name="LinguistCorrection" ColumnName="LinguistCorrection" />
+          <ScalarProperty Name="CommentQA" ColumnName="CommentQA" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserId1" ColumnName="UserId1" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="SeverityId" ColumnName="SeverityId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IDCode" ColumnName="IDCode" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Brand)">
+        <MappingFragment StoreEntitySet="Brands">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IDCode" ColumnName="IDCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Releases">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Release)">
+        <MappingFragment StoreEntitySet="Releases">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IDCode" ColumnName="IDCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Media">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Media)">
+        <MappingFragment StoreEntitySet="Media">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Role)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IDCode" ColumnName="IDCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Application)">
+        <MappingFragment StoreEntitySet="Applications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IDCode" ColumnName="IDCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Licenses">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.License)">
+        <MappingFragment StoreEntitySet="Licenses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IDCode" ColumnName="IDCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Area)">
+        <MappingFragment StoreEntitySet="Areas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IDCode" ColumnName="IDCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Files">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.File)">
+        <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Language)">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Severities">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Severity)">
+        <MappingFragment StoreEntitySet="Severities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Category)">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Status)">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProjectManagerUser" TypeName="LVData.ProjectManagerUser" StoreEntitySet="Projects">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Manager_Id" />
+      </EndProperty>
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectBrand" TypeName="LVData.ProjectBrand" StoreEntitySet="ProjectBrand">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Projects_Id" />
+      </EndProperty>
+      <EndProperty Name="Brand">
+        <ScalarProperty Name="Id" ColumnName="Brands_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectLanguage" TypeName="LVData.ProjectLanguage" StoreEntitySet="ProjectLanguage">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Projects_Id" />
+      </EndProperty>
+      <EndProperty Name="Language">
+        <ScalarProperty Name="Id" ColumnName="Languages_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectSteamers" TypeName="LVData.ProjectSteamers" StoreEntitySet="ProjectSteamers">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="ProjectsSteamers_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Steamers_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectITers" TypeName="LVData.ProjectITers" StoreEntitySet="ProjectITers">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="ProjectsITers_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="ITers_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectPartners" TypeName="LVData.ProjectPartners" StoreEntitySet="ProjectPartners">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="ProjectsPartners_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Partners_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectRelease" TypeName="LVData.ProjectRelease" StoreEntitySet="Projects">
+      <EndProperty Name="Release">
+        <ScalarProperty Name="Id" ColumnName="Release_Id" />
+      </EndProperty>
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectParticipants" TypeName="LVData.ProjectParticipants" StoreEntitySet="ProjectParticipants">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="ProjectsParticipants_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Participants_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RequirementClientSettingsFiles" TypeName="LVData.RequirementClientSettingsFiles" StoreEntitySet="RequirementClientSettingsFiles">
+      <EndProperty Name="Requirement">
+        <ScalarProperty Name="Id" ColumnName="RequirementsClientSettings_Id" />
+      </EndProperty>
+      <EndProperty Name="File">
+        <ScalarProperty Name="Id" ColumnName="ClientSettingsFiles_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RequirementServerSettingsFiles" TypeName="LVData.RequirementServerSettingsFiles" StoreEntitySet="RequirementServerSettingsFiles">
+      <EndProperty Name="Requirement">
+        <ScalarProperty Name="Id" ColumnName="RequirementsServerSettings_Id" />
+      </EndProperty>
+      <EndProperty Name="File">
+        <ScalarProperty Name="Id" ColumnName="ServerSettingsFiles_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RequirementLicense" TypeName="LVData.RequirementLicense" StoreEntitySet="RequirementLicense">
+      <EndProperty Name="Requirement">
+        <ScalarProperty Name="Id" ColumnName="Requirements_Id" />
+      </EndProperty>
+      <EndProperty Name="License">
+        <ScalarProperty Name="Id" ColumnName="Licenses_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RequirementRole" TypeName="LVData.RequirementRole" StoreEntitySet="RequirementRole">
+      <EndProperty Name="Requirement">
+        <ScalarProperty Name="Id" ColumnName="Requirements_Id" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="Roles_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RequirementArea" TypeName="LVData.RequirementArea" StoreEntitySet="RequirementArea">
+      <EndProperty Name="Requirement">
+        <ScalarProperty Name="Id" ColumnName="Requirements_Id" />
+      </EndProperty>
+      <EndProperty Name="Area">
+        <ScalarProperty Name="Id" ColumnName="Areas_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DefectFileDescriptionFiles" TypeName="LVData.DefectFileDescriptionFiles" StoreEntitySet="DefectFileDescriptionFiles">
+      <EndProperty Name="Defect">
+        <ScalarProperty Name="Id" ColumnName="DefectsDescriptionFiles_Id" />
+      </EndProperty>
+      <EndProperty Name="File">
+        <ScalarProperty Name="Id" ColumnName="DescriptionFiles_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

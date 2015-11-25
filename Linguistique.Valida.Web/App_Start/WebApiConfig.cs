@@ -10,9 +10,9 @@ namespace Linguistique.Valida.Web
         public static void Register(HttpConfiguration config)
         {
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                name: "Projects",
+                routeTemplate: "api/projects/{id}",
+                defaults: new { controller = "Project", id = RouteParameter.Optional}
             );
         }
     }
