@@ -33,8 +33,8 @@ namespace Linguistique.Valida.Data
         public int ProjectId { get; set; }
         public int BrandId { get; set; }
         public int LanguageId { get; set; }
-        public int UserId { get; set; }
-        public int UserId1 { get; set; }
+        public int ApplicationEnggUserId { get; set; }
+        public int LinguistUserId { get; set; }
         public int ApplicationId { get; set; }
         public int SeverityId { get; set; }
         public int CategoryId { get; set; }

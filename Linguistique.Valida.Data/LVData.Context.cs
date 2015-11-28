@@ -18,6 +18,7 @@ namespace Linguistique.Valida.Data
         public LVDataContainer()
             : base("name=LVDataContainer")
         {
+            base.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -31,7 +32,6 @@ namespace Linguistique.Valida.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Release> Releases { get; set; }
-        public DbSet<Media> Media { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Application> Applications { get; set; }
         public DbSet<License> Licenses { get; set; }
@@ -41,5 +41,8 @@ namespace Linguistique.Valida.Data
         public DbSet<Severity> Severities { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Status> Status { get; set; }
+        public DbSet<AttendeeType> AttendeeTypes { get; set; }
+        public DbSet<Media> Medias { get; set; }
+        public DbSet<Participant> Participants { get; set; }
     }
 }

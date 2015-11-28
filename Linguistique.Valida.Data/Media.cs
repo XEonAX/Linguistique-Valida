@@ -16,12 +16,12 @@ namespace Linguistique.Valida.Data
     {
         public Media()
         {
-            this.RequirementsMedia = new HashSet<Requirement>();
+            this.Requirements = new HashSet<Requirement>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
     
-        public virtual ICollection<Requirement> RequirementsMedia { get; set; }
+        public virtual ICollection<Requirement> Requirements { get; set; }
     }
 }

@@ -4,20 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="698ae0ffb5a84fbe85757d3fdc6bfe8b" Name="Diagram1" ZoomLevel="54" DisplayType="true" >
-        <EntityTypeShape EntityType="LVData.Project" PointX="0.75" PointY="17.75" Width="1.5" />
-        <EntityTypeShape EntityType="LVData.Requirement" Width="2.25" PointX="3" PointY="11.25" />
-        <EntityTypeShape EntityType="LVData.Defect" Width="2.25" PointX="3" PointY="22.5" />
-        <EntityTypeShape EntityType="LVData.User" Width="2" PointX="9" PointY="14.5" />
-        <EntityTypeShape EntityType="LVData.Brand" Width="1.5" PointX="9" PointY="23.25" />
-        <EntityTypeShape EntityType="LVData.Release" Width="1.5" PointX="0.5" PointY="22.75" />
-        <EntityTypeShape EntityType="LVData.Media" Width="2.25" PointX="6" PointY="30.875" />
-        <EntityTypeShape EntityType="LVData.Role" Width="1.5" PointX="6" PointY="10.125" />
-        <EntityTypeShape EntityType="LVData.Application" Width="1.5" PointX="6" PointY="21.25" />
-        <EntityTypeShape EntityType="LVData.License" Width="1.5" PointX="6" PointY="17.75" />
-        <EntityTypeShape EntityType="LVData.Area" Width="1.5" PointX="6" PointY="12.75" />
-        <EntityTypeShape EntityType="LVData.File" Width="1.5" PointX="9.25" PointY="19" />
-        <EntityTypeShape EntityType="LVData.Language" Width="1.5" PointX="9" PointY="26.625" />
+      <Diagram DiagramId="698ae0ffb5a84fbe85757d3fdc6bfe8b" Name="Diagram1" ZoomLevel="64" DisplayType="true" >
+        <EntityTypeShape EntityType="LVData.Project" PointX="0.75" PointY="19.625" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVData.Requirement" Width="2.25" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVData.Defect" Width="2.25" PointX="3" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVData.User" Width="2" PointX="9" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVData.Brand" Width="1.5" PointX="6" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVData.Release" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVData.Role" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVData.Application" Width="1.5" PointX="6" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVData.License" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVData.Area" Width="1.5" PointX="6" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVData.File" Width="1.5" PointX="9" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVData.Language" Width="1.5" PointX="9" PointY="27.25" IsExpanded="true" />
         <AssociationConnector Association="LVData.ProjectRequirement" />
         <AssociationConnector Association="LVData.ProjectDefect" />
         <AssociationConnector Association="LVData.ProjectManagerUser" />
@@ -27,12 +26,10 @@
         <AssociationConnector Association="LVData.ProjectITers" />
         <AssociationConnector Association="LVData.ProjectPartners" />
         <AssociationConnector Association="LVData.ProjectRelease" />
-        <AssociationConnector Association="LVData.ProjectParticipants" />
         <AssociationConnector Association="LVData.RequirementBrand" />
         <AssociationConnector Association="LVData.RequirementApplication" />
         <AssociationConnector Association="LVData.RequirementTLead" />
         <AssociationConnector Association="LVData.RequirementResponsibleUser" />
-        <AssociationConnector Association="LVData.RequirementMedia" />
         <AssociationConnector Association="LVData.RequirementClientSettingsFiles" />
         <AssociationConnector Association="LVData.RequirementServerSettingsFiles" />
         <AssociationConnector Association="LVData.RequirementLicense" />
@@ -45,13 +42,21 @@
         <AssociationConnector Association="LVData.DefectUserLinguist" />
         <AssociationConnector Association="LVData.DefectApplication" />
         <AssociationConnector Association="LVData.DefectFileDescriptionFiles" />
-        <EntityTypeShape EntityType="LVData.Severity" Width="1.5" PointX="6" PointY="25.25" />
-        <EntityTypeShape EntityType="LVData.Category" Width="1.5" PointX="6" PointY="27.625" />
+        <EntityTypeShape EntityType="LVData.Severity" Width="1.5" PointX="6" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LVData.Category" Width="1.5" PointX="6" PointY="35" IsExpanded="true" />
         <AssociationConnector Association="LVData.SeverityDefect" />
         <AssociationConnector Association="LVData.DefectCategory" />
-        <EntityTypeShape EntityType="LVData.Status" Width="1.5" PointX="6" PointY="34" />
+        <EntityTypeShape EntityType="LVData.Status" Width="1.5" PointX="6" PointY="37.375" IsExpanded="true" />
         <AssociationConnector Association="LVData.DefectStatus" />
-      </Diagram>
+        <EntityTypeShape EntityType="LVData.AttendeeType" Width="1.5" PointX="11.75" PointY="19.5" IsExpanded="true" />
+        <AssociationConnector Association="LVData.UserAttendeeType" />
+        <EntityTypeShape EntityType="LVData.Media" Width="1.5" PointX="6" PointY="27" IsExpanded="true" />
+        <AssociationConnector Association="LVData.RequirementMedia" />
+        <EntityTypeShape EntityType="LVData.Participant" Width="1.5" PointX="3" PointY="20.375" IsExpanded="true" />
+        <AssociationConnector Association="LVData.ParticipantUser" />
+        <AssociationConnector Association="LVData.ParticipantAttendeeType" />
+        <AssociationConnector Association="LVData.ProjectParticipant" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

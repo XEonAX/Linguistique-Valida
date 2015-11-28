@@ -12,17 +12,19 @@ namespace Linguistique.Valida.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Area
+    public partial class Participant
     {
-        public Area()
+        public Participant()
         {
-            this.Requirements = new HashSet<Requirement>();
+            this.Projects = new HashSet<Project>();
         }
     
         public int Id { get; set; }
-        public string IDCode { get; set; }
-        public string Name { get; set; }
+        public int UserId { get; set; }
+        public int AttendeeTypeId { get; set; }
     
-        public virtual ICollection<Requirement> Requirements { get; set; }
+        public virtual User User { get; set; }
+        public virtual AttendeeType AttendeeType { get; set; }
+        public virtual ICollection<Project> Projects { get; set; }
     }
 }

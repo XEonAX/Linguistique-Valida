@@ -37,9 +37,8 @@ namespace Linguistique.Valida.Data
         public int ProjectId { get; set; }
         public int BrandId { get; set; }
         public int ApplicationId { get; set; }
-        public int UserId { get; set; }
-        public int UserId1 { get; set; }
-        public int MediaId { get; set; }
+        public int TLeadUserId { get; set; }
+        public int ResponsibleUserId { get; set; }
         public int FileId { get; set; }
     
         public virtual Project Project { get; set; }
@@ -47,12 +46,12 @@ namespace Linguistique.Valida.Data
         public virtual Application Application { get; set; }
         public virtual User TLead { get; set; }
         public virtual User Responsible { get; set; }
-        public virtual Media Media { get; set; }
         public virtual ICollection<File> ClientSettingsFiles { get; set; }
         public virtual ICollection<File> ServerSettingsFiles { get; set; }
         public virtual ICollection<License> Licenses { get; set; }
         public virtual ICollection<Role> Roles { get; set; }
         public virtual ICollection<Area> Areas { get; set; }
         public virtual File ScenarioPPT { get; set; }
+        public virtual Media Media { get; set; }
     }
 }

@@ -12,7 +12,6 @@
     <EntitySet Name="Users" EntityType="LVData.Store.Users" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Brands" EntityType="LVData.Store.Brands" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Releases" EntityType="LVData.Store.Releases" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Media" EntityType="LVData.Store.Media" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Roles" EntityType="LVData.Store.Roles" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Applications" EntityType="LVData.Store.Applications" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Licenses" EntityType="LVData.Store.Licenses" store:Type="Tables" Schema="dbo" />
@@ -22,18 +21,21 @@
     <EntitySet Name="Severities" EntityType="LVData.Store.Severities" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Categories" EntityType="LVData.Store.Categories" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Status" EntityType="LVData.Store.Status" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AttendeeTypes" EntityType="LVData.Store.AttendeeTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Medias" EntityType="LVData.Store.Medias" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Participants" EntityType="LVData.Store.Participants" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ProjectBrand" EntityType="LVData.Store.ProjectBrand" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ProjectLanguage" EntityType="LVData.Store.ProjectLanguage" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ProjectSteamers" EntityType="LVData.Store.ProjectSteamers" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ProjectITers" EntityType="LVData.Store.ProjectITers" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ProjectPartners" EntityType="LVData.Store.ProjectPartners" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ProjectParticipants" EntityType="LVData.Store.ProjectParticipants" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RequirementClientSettingsFiles" EntityType="LVData.Store.RequirementClientSettingsFiles" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RequirementServerSettingsFiles" EntityType="LVData.Store.RequirementServerSettingsFiles" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RequirementLicense" EntityType="LVData.Store.RequirementLicense" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RequirementRole" EntityType="LVData.Store.RequirementRole" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RequirementArea" EntityType="LVData.Store.RequirementArea" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="DefectFileDescriptionFiles" EntityType="LVData.Store.DefectFileDescriptionFiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectParticipant" EntityType="LVData.Store.ProjectParticipant" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="ProjectRequirement" Association="LVData.Store.ProjectRequirement">
       <End Role="Project" EntitySet="Projects" />
       <End Role="Requirement" EntitySet="Requirements" />
@@ -90,14 +92,6 @@
       <End Role="Project" EntitySet="Projects" />
       <End Role="Release" EntitySet="Releases" />
     </AssociationSet>
-    <AssociationSet Name="FK_ProjectParticipants_Project" Association="LVData.Store.FK_ProjectParticipants_Project">
-      <End Role="Project" EntitySet="Projects" />
-      <End Role="ProjectParticipants" EntitySet="ProjectParticipants" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProjectParticipants_User" Association="LVData.Store.FK_ProjectParticipants_User">
-      <End Role="User" EntitySet="Users" />
-      <End Role="ProjectParticipants" EntitySet="ProjectParticipants" />
-    </AssociationSet>
     <AssociationSet Name="RequirementBrand" Association="LVData.Store.RequirementBrand">
       <End Role="Requirement" EntitySet="Requirements" />
       <End Role="Brand" EntitySet="Brands" />
@@ -113,10 +107,6 @@
     <AssociationSet Name="RequirementResponsibleUser" Association="LVData.Store.RequirementResponsibleUser">
       <End Role="Requirement" EntitySet="Requirements" />
       <End Role="User" EntitySet="Users" />
-    </AssociationSet>
-    <AssociationSet Name="RequirementMedia" Association="LVData.Store.RequirementMedia">
-      <End Role="Requirement" EntitySet="Requirements" />
-      <End Role="Media" EntitySet="Media" />
     </AssociationSet>
     <AssociationSet Name="FK_RequirementClientSettingsFiles_Requirement" Association="LVData.Store.FK_RequirementClientSettingsFiles_Requirement">
       <End Role="Requirement" EntitySet="Requirements" />
@@ -202,6 +192,30 @@
       <End Role="Defect" EntitySet="Defects" />
       <End Role="Status" EntitySet="Status" />
     </AssociationSet>
+    <AssociationSet Name="UserAttendeeType" Association="LVData.Store.UserAttendeeType">
+      <End Role="User" EntitySet="Users" />
+      <End Role="AttendeeType" EntitySet="AttendeeTypes" />
+    </AssociationSet>
+    <AssociationSet Name="RequirementMedia" Association="LVData.Store.RequirementMedia">
+      <End Role="Requirement" EntitySet="Requirements" />
+      <End Role="Media" EntitySet="Medias" />
+    </AssociationSet>
+    <AssociationSet Name="ParticipantUser" Association="LVData.Store.ParticipantUser">
+      <End Role="Participant" EntitySet="Participants" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="ParticipantAttendeeType" Association="LVData.Store.ParticipantAttendeeType">
+      <End Role="Participant" EntitySet="Participants" />
+      <End Role="AttendeeType" EntitySet="AttendeeTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectParticipant_Project" Association="LVData.Store.FK_ProjectParticipant_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="ProjectParticipant" EntitySet="ProjectParticipant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectParticipant_Participant" Association="LVData.Store.FK_ProjectParticipant_Participant">
+      <End Role="Participant" EntitySet="Participants" />
+      <End Role="ProjectParticipant" EntitySet="ProjectParticipant" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Projects">
     <Key>
@@ -233,10 +247,10 @@
     <Property Name="ProjectId" Type="int" Nullable="false" />
     <Property Name="BrandId" Type="int" Nullable="false" />
     <Property Name="ApplicationId" Type="int" Nullable="false" />
-    <Property Name="UserId" Type="int" Nullable="false" />
-    <Property Name="UserId1" Type="int" Nullable="false" />
-    <Property Name="MediaId" Type="int" Nullable="false" />
+    <Property Name="TLeadUserId" Type="int" Nullable="false" />
+    <Property Name="ResponsibleUserId" Type="int" Nullable="false" />
     <Property Name="FileId" Type="int" Nullable="false" />
+    <Property Name="Media_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Defects">
     <Key>
@@ -256,8 +270,8 @@
     <Property Name="ProjectId" Type="int" Nullable="false" />
     <Property Name="BrandId" Type="int" Nullable="false" />
     <Property Name="LanguageId" Type="int" Nullable="false" />
-    <Property Name="UserId" Type="int" Nullable="false" />
-    <Property Name="UserId1" Type="int" Nullable="false" />
+    <Property Name="ApplicationEnggUserId" Type="int" Nullable="false" />
+    <Property Name="LinguistUserId" Type="int" Nullable="false" />
     <Property Name="ApplicationId" Type="int" Nullable="false" />
     <Property Name="SeverityId" Type="int" Nullable="false" />
     <Property Name="CategoryId" Type="int" Nullable="false" />
@@ -271,6 +285,7 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IDCode" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AttendeeType_Id" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Brands">
     <Key>
@@ -287,13 +302,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IDCode" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Media">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -325,6 +333,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Files">
     <Key>
@@ -362,6 +371,28 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AttendeeTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Medias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Participants">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="AttendeeTypeId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProjectBrand">
     <Key>
@@ -402,14 +433,6 @@
     </Key>
     <Property Name="ProjectsPartners_Id" Type="int" Nullable="false" />
     <Property Name="Partners_Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ProjectParticipants">
-    <Key>
-      <PropertyRef Name="ProjectsParticipants_Id" />
-      <PropertyRef Name="Participants_Id" />
-    </Key>
-    <Property Name="ProjectsParticipants_Id" Type="int" Nullable="false" />
-    <Property Name="Participants_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="RequirementClientSettingsFiles">
     <Key>
@@ -458,6 +481,14 @@
     </Key>
     <Property Name="DefectsDescriptionFiles_Id" Type="int" Nullable="false" />
     <Property Name="DescriptionFiles_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectParticipant">
+    <Key>
+      <PropertyRef Name="Projects_Id" />
+      <PropertyRef Name="Participants_Id" />
+    </Key>
+    <Property Name="Projects_Id" Type="int" Nullable="false" />
+    <Property Name="Participants_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="ProjectRequirement">
     <End Role="Project" Type="LVData.Store.Projects" Multiplicity="1" />
@@ -539,7 +570,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Requirement">
-        <PropertyRef Name="UserId" />
+        <PropertyRef Name="TLeadUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -551,19 +582,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Requirement">
-        <PropertyRef Name="UserId1" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="RequirementMedia">
-    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="*" />
-    <End Role="Media" Type="LVData.Store.Media" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Media">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Requirement">
-        <PropertyRef Name="MediaId" />
+        <PropertyRef Name="ResponsibleUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -611,7 +630,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Defect">
-        <PropertyRef Name="UserId" />
+        <PropertyRef Name="ApplicationEnggUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -623,7 +642,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Defect">
-        <PropertyRef Name="UserId1" />
+        <PropertyRef Name="LinguistUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -672,6 +691,54 @@
       </Principal>
       <Dependent Role="Defect">
         <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserAttendeeType">
+    <End Role="User" Type="LVData.Store.Users" Multiplicity="*" />
+    <End Role="AttendeeType" Type="LVData.Store.AttendeeTypes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AttendeeType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="AttendeeType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RequirementMedia">
+    <End Role="Requirement" Type="LVData.Store.Requirements" Multiplicity="*" />
+    <End Role="Media" Type="LVData.Store.Medias" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Media">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requirement">
+        <PropertyRef Name="Media_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ParticipantUser">
+    <End Role="Participant" Type="LVData.Store.Participants" Multiplicity="*" />
+    <End Role="User" Type="LVData.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Participant">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ParticipantAttendeeType">
+    <End Role="Participant" Type="LVData.Store.Participants" Multiplicity="*" />
+    <End Role="AttendeeType" Type="LVData.Store.AttendeeTypes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AttendeeType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Participant">
+        <PropertyRef Name="AttendeeTypeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -792,30 +859,6 @@
       </Principal>
       <Dependent Role="ProjectPartners">
         <PropertyRef Name="Partners_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProjectParticipants_Project">
-    <End Role="Project" Type="LVData.Store.Projects" Multiplicity="1" />
-    <End Role="ProjectParticipants" Type="LVData.Store.ProjectParticipants" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Project">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ProjectParticipants">
-        <PropertyRef Name="ProjectsParticipants_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProjectParticipants_User">
-    <End Role="ProjectParticipants" Type="LVData.Store.ProjectParticipants" Multiplicity="*" />
-    <End Role="User" Type="LVData.Store.Users" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ProjectParticipants">
-        <PropertyRef Name="Participants_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -963,6 +1006,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProjectParticipant_Project">
+    <End Role="Project" Type="LVData.Store.Projects" Multiplicity="1" />
+    <End Role="ProjectParticipant" Type="LVData.Store.ProjectParticipant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectParticipant">
+        <PropertyRef Name="Projects_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectParticipant_Participant">
+    <End Role="ProjectParticipant" Type="LVData.Store.ProjectParticipant" Multiplicity="*" />
+    <End Role="Participant" Type="LVData.Store.Participants" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Participant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectParticipant">
+        <PropertyRef Name="Participants_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -974,7 +1041,6 @@
           <EntitySet Name="Users" EntityType="LVData.User" />
           <EntitySet Name="Brands" EntityType="LVData.Brand" />
           <EntitySet Name="Releases" EntityType="LVData.Release" />
-          <EntitySet Name="Media" EntityType="LVData.Media" />
           <EntitySet Name="Roles" EntityType="LVData.Role" />
           <EntitySet Name="Applications" EntityType="LVData.Application" />
           <EntitySet Name="Licenses" EntityType="LVData.License" />
@@ -1017,10 +1083,6 @@
             <End Role="Project" EntitySet="Projects" />
             <End Role="Release" EntitySet="Releases" />
           </AssociationSet>
-          <AssociationSet Name="ProjectParticipants" Association="LVData.ProjectParticipants">
-            <End Role="Project" EntitySet="Projects" />
-            <End Role="User" EntitySet="Users" />
-          </AssociationSet>
           <AssociationSet Name="RequirementBrand" Association="LVData.RequirementBrand">
             <End Role="Requirement" EntitySet="Requirements" />
             <End Role="Brand" EntitySet="Brands" />
@@ -1036,10 +1098,6 @@
           <AssociationSet Name="RequirementResponsibleUser" Association="LVData.RequirementResponsibleUser">
             <End Role="Requirement" EntitySet="Requirements" />
             <End Role="User" EntitySet="Users" />
-          </AssociationSet>
-          <AssociationSet Name="RequirementMedia" Association="LVData.RequirementMedia">
-            <End Role="Requirement" EntitySet="Requirements" />
-            <End Role="Media" EntitySet="Media" />
           </AssociationSet>
           <AssociationSet Name="RequirementClientSettingsFiles" Association="LVData.RequirementClientSettingsFiles">
             <End Role="Requirement" EntitySet="Requirements" />
@@ -1104,7 +1162,30 @@
             <End Role="Defect" EntitySet="Defects" />
             <End Role="Status" EntitySet="Status" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="AttendeeTypes" EntityType="LVData.AttendeeType" />
+          <AssociationSet Name="UserAttendeeType" Association="LVData.UserAttendeeType">
+            <End Role="User" EntitySet="Users" />
+            <End Role="AttendeeType" EntitySet="AttendeeTypes" />
+          </AssociationSet>
+          <EntitySet Name="Medias" EntityType="LVData.Media" />
+          <AssociationSet Name="RequirementMedia" Association="LVData.RequirementMedia">
+            <End Role="Requirement" EntitySet="Requirements" />
+            <End Role="Media" EntitySet="Medias" />
+          </AssociationSet>
+          <EntitySet Name="Participants" EntityType="LVData.Participant" />
+          <AssociationSet Name="ParticipantUser" Association="LVData.ParticipantUser">
+            <End Role="Participant" EntitySet="Participants" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="ParticipantAttendeeType" Association="LVData.ParticipantAttendeeType">
+            <End Role="Participant" EntitySet="Participants" />
+            <End Role="AttendeeType" EntitySet="AttendeeTypes" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectParticipant" Association="LVData.ProjectParticipant">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Participant" EntitySet="Participants" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="Project">
           <Key>
             <PropertyRef Name="Id" />
@@ -1123,7 +1204,7 @@
           <NavigationProperty Name="ITers" Relationship="LVData.ProjectITers" FromRole="Project" ToRole="User" />
           <NavigationProperty Name="Partners" Relationship="LVData.ProjectPartners" FromRole="Project" ToRole="User" />
           <NavigationProperty Name="Release" Relationship="LVData.ProjectRelease" FromRole="Project" ToRole="Release" />
-          <NavigationProperty Name="Participants" Relationship="LVData.ProjectParticipants" FromRole="Project" ToRole="User" />
+          <NavigationProperty Name="Participants" Relationship="LVData.ProjectParticipant" FromRole="Project" ToRole="Participant" />
         </EntityType>
         <EntityType Name="Requirement">
           <Key>
@@ -1147,11 +1228,9 @@
           <NavigationProperty Name="Application" Relationship="LVData.RequirementApplication" FromRole="Requirement" ToRole="Application" />
           <Property Name="ApplicationId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TLead" Relationship="LVData.RequirementTLead" FromRole="Requirement" ToRole="User" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="TLeadUserId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Responsible" Relationship="LVData.RequirementResponsibleUser" FromRole="Requirement" ToRole="User" />
-          <Property Name="UserId1" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Media" Relationship="LVData.RequirementMedia" FromRole="Requirement" ToRole="Media" />
-          <Property Name="MediaId" Type="Int32" Nullable="false" />
+          <Property Name="ResponsibleUserId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ClientSettingsFiles" Relationship="LVData.RequirementClientSettingsFiles" FromRole="Requirement" ToRole="File" />
           <NavigationProperty Name="ServerSettingsFiles" Relationship="LVData.RequirementServerSettingsFiles" FromRole="Requirement" ToRole="File" />
           <NavigationProperty Name="Licenses" Relationship="LVData.RequirementLicense" FromRole="Requirement" ToRole="License" />
@@ -1159,6 +1238,7 @@
           <NavigationProperty Name="Areas" Relationship="LVData.RequirementArea" FromRole="Requirement" ToRole="Area" />
           <NavigationProperty Name="ScenarioPPT" Relationship="LVData.FileRequirementScenarioPPT" FromRole="Requirement" ToRole="File" />
           <Property Name="FileId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Media" Relationship="LVData.RequirementMedia" FromRole="Requirement" ToRole="Media" />
         </EntityType>
         <EntityType Name="Defect">
           <Key>
@@ -1182,9 +1262,9 @@
           <NavigationProperty Name="Language" Relationship="LVData.DefectLanguage" FromRole="Defect" ToRole="Language" />
           <Property Name="LanguageId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ApplicationEngg" Relationship="LVData.DefectUserApplicationEngg" FromRole="Defect" ToRole="User" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ApplicationEnggUserId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Linguist" Relationship="LVData.DefectUserLinguist" FromRole="Defect" ToRole="User" />
-          <Property Name="UserId1" Type="Int32" Nullable="false" />
+          <Property Name="LinguistUserId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Application" Relationship="LVData.DefectApplication" FromRole="Defect" ToRole="Application" />
           <Property Name="ApplicationId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="DescriptionFiles" Relationship="LVData.DefectFileDescriptionFiles" FromRole="Defect" ToRole="File" />
@@ -1207,11 +1287,12 @@
           <NavigationProperty Name="ProjectsSteamers" Relationship="LVData.ProjectSteamers" FromRole="User" ToRole="Project" />
           <NavigationProperty Name="ProjectsITers" Relationship="LVData.ProjectITers" FromRole="User" ToRole="Project" />
           <NavigationProperty Name="ProjectsPartners" Relationship="LVData.ProjectPartners" FromRole="User" ToRole="Project" />
-          <NavigationProperty Name="ProjectsParticipants" Relationship="LVData.ProjectParticipants" FromRole="User" ToRole="Project" />
           <NavigationProperty Name="RequirementsTLead" Relationship="LVData.RequirementTLead" FromRole="User" ToRole="Requirement" />
           <NavigationProperty Name="RequirementsResponsible" Relationship="LVData.RequirementResponsibleUser" FromRole="User" ToRole="Requirement" />
           <NavigationProperty Name="DefectsApplicationEngg" Relationship="LVData.DefectUserApplicationEngg" FromRole="User" ToRole="Defect" />
           <NavigationProperty Name="DefectsLinguist" Relationship="LVData.DefectUserLinguist" FromRole="User" ToRole="Defect" />
+          <NavigationProperty Name="AttendeeType" Relationship="LVData.UserAttendeeType" FromRole="User" ToRole="AttendeeType" />
+          <NavigationProperty Name="Participants" Relationship="LVData.ParticipantUser" FromRole="User" ToRole="Participant" />
         </EntityType>
         <EntityType Name="Brand">
           <Key>
@@ -1232,14 +1313,6 @@
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="IDCode" Type="String" Nullable="false" />
           <NavigationProperty Name="ProjectsRelease" Relationship="LVData.ProjectRelease" FromRole="Release" ToRole="Project" />
-        </EntityType>
-        <EntityType Name="Media">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <NavigationProperty Name="RequirementsMedia" Relationship="LVData.RequirementMedia" FromRole="Media" ToRole="Requirement" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -1276,6 +1349,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDCode" Type="String" Nullable="false" />
           <NavigationProperty Name="Requirements" Relationship="LVData.RequirementArea" FromRole="Area" ToRole="Requirement" />
+          <Property Name="Name" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="File">
           <Key>
@@ -1351,10 +1425,6 @@
           <End Type="LVData.Project" Role="Project" Multiplicity="*" />
           <End Type="LVData.Release" Role="Release" Multiplicity="1" />
         </Association>
-        <Association Name="ProjectParticipants">
-          <End Type="LVData.Project" Role="Project" Multiplicity="*" />
-          <End Type="LVData.User" Role="User" Multiplicity="*" />
-        </Association>
         <Association Name="RequirementBrand">
           <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
           <End Type="LVData.Brand" Role="Brand" Multiplicity="1" />
@@ -1387,7 +1457,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Requirement">
-              <PropertyRef Name="UserId" />
+              <PropertyRef Name="TLeadUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1399,19 +1469,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Requirement">
-              <PropertyRef Name="UserId1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="RequirementMedia">
-          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
-          <End Type="LVData.Media" Role="Media" Multiplicity="1" />
-          <ReferentialConstraint>
-            <Principal Role="Media">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Requirement">
-              <PropertyRef Name="MediaId" />
+              <PropertyRef Name="ResponsibleUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1479,7 +1537,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Defect">
-              <PropertyRef Name="UserId" />
+              <PropertyRef Name="ApplicationEnggUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1491,7 +1549,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Defect">
-              <PropertyRef Name="UserId1" />
+              <PropertyRef Name="LinguistUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1571,7 +1629,71 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="AttendeeType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Users" Relationship="LVData.UserAttendeeType" FromRole="AttendeeType" ToRole="User" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Participants" Relationship="LVData.ParticipantAttendeeType" FromRole="AttendeeType" ToRole="Participant" />
+        </EntityType>
+        <Association Name="UserAttendeeType">
+          <End Type="LVData.User" Role="User" Multiplicity="*" />
+          <End Type="LVData.AttendeeType" Role="AttendeeType" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="Media">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Requirements" Relationship="LVData.RequirementMedia" FromRole="Media" ToRole="Requirement" />
+        </EntityType>
+        <Association Name="RequirementMedia">
+          <End Type="LVData.Requirement" Role="Requirement" Multiplicity="*" />
+          <End Type="LVData.Media" Role="Media" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="LVData.ParticipantUser" FromRole="Participant" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AttendeeType" Relationship="LVData.ParticipantAttendeeType" FromRole="Participant" ToRole="AttendeeType" />
+          <Property Name="AttendeeTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Projects" Relationship="LVData.ProjectParticipant" FromRole="Participant" ToRole="Project" />
+        </EntityType>
+        <Association Name="ParticipantUser">
+          <End Type="LVData.Participant" Role="Participant" Multiplicity="*" />
+          <End Type="LVData.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Participant">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ParticipantAttendeeType">
+          <End Type="LVData.Participant" Role="Participant" Multiplicity="*" />
+          <End Type="LVData.AttendeeType" Role="AttendeeType" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="AttendeeType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Participant">
+              <PropertyRef Name="AttendeeTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProjectParticipant">
+          <End Type="LVData.Project" Role="Project" Multiplicity="*" />
+          <End Type="LVData.Participant" Role="Participant" Multiplicity="*" />
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1605,9 +1727,8 @@
           <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
           <ScalarProperty Name="BrandId" ColumnName="BrandId" />
           <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="UserId1" ColumnName="UserId1" />
-          <ScalarProperty Name="MediaId" ColumnName="MediaId" />
+          <ScalarProperty Name="TLeadUserId" ColumnName="TLeadUserId" />
+          <ScalarProperty Name="ResponsibleUserId" ColumnName="ResponsibleUserId" />
           <ScalarProperty Name="FileId" ColumnName="FileId" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -1629,8 +1750,8 @@
           <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
           <ScalarProperty Name="BrandId" ColumnName="BrandId" />
           <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="UserId1" ColumnName="UserId1" />
+          <ScalarProperty Name="ApplicationEnggUserId" ColumnName="ApplicationEnggUserId" />
+          <ScalarProperty Name="LinguistUserId" ColumnName="LinguistUserId" />
           <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
           <ScalarProperty Name="SeverityId" ColumnName="SeverityId" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
@@ -1666,14 +1787,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Media">
-      <EntityTypeMapping TypeName="IsTypeOf(LVData.Media)">
-        <MappingFragment StoreEntitySet="Media">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Roles">
       <EntityTypeMapping TypeName="IsTypeOf(LVData.Role)">
         <MappingFragment StoreEntitySet="Roles">
@@ -1706,6 +1819,7 @@
         <MappingFragment StoreEntitySet="Areas">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IDCode" ColumnName="IDCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1748,6 +1862,31 @@
         <MappingFragment StoreEntitySet="Status">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendeeTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.AttendeeType)">
+        <MappingFragment StoreEntitySet="AttendeeTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medias">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Media)">
+        <MappingFragment StoreEntitySet="Medias">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Participants">
+      <EntityTypeMapping TypeName="IsTypeOf(LVData.Participant)">
+        <MappingFragment StoreEntitySet="Participants">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="AttendeeTypeId" ColumnName="AttendeeTypeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1807,14 +1946,6 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ProjectParticipants" TypeName="LVData.ProjectParticipants" StoreEntitySet="ProjectParticipants">
-      <EndProperty Name="Project">
-        <ScalarProperty Name="Id" ColumnName="ProjectsParticipants_Id" />
-      </EndProperty>
-      <EndProperty Name="User">
-        <ScalarProperty Name="Id" ColumnName="Participants_Id" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="RequirementClientSettingsFiles" TypeName="LVData.RequirementClientSettingsFiles" StoreEntitySet="RequirementClientSettingsFiles">
       <EndProperty Name="Requirement">
         <ScalarProperty Name="Id" ColumnName="RequirementsClientSettings_Id" />
@@ -1861,6 +1992,31 @@
       </EndProperty>
       <EndProperty Name="File">
         <ScalarProperty Name="Id" ColumnName="DescriptionFiles_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserAttendeeType" TypeName="LVData.UserAttendeeType" StoreEntitySet="Users">
+      <EndProperty Name="AttendeeType">
+        <ScalarProperty Name="Id" ColumnName="AttendeeType_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="AttendeeType_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RequirementMedia" TypeName="LVData.RequirementMedia" StoreEntitySet="Requirements">
+      <EndProperty Name="Media">
+        <ScalarProperty Name="Id" ColumnName="Media_Id" />
+      </EndProperty>
+      <EndProperty Name="Requirement">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectParticipant" TypeName="LVData.ProjectParticipant" StoreEntitySet="ProjectParticipant">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Projects_Id" />
+      </EndProperty>
+      <EndProperty Name="Participant">
+        <ScalarProperty Name="Id" ColumnName="Participants_Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

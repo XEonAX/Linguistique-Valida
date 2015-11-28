@@ -23,7 +23,7 @@ namespace Linguistique.Valida.Data
             this.Steamers = new HashSet<User>();
             this.ITers = new HashSet<User>();
             this.Partners = new HashSet<User>();
-            this.Participants = new HashSet<User>();
+            this.Participants = new HashSet<Participant>();
         }
     
         public int Id { get; set; }
@@ -41,6 +41,6 @@ namespace Linguistique.Valida.Data
         public virtual ICollection<User> ITers { get; set; }
         public virtual ICollection<User> Partners { get; set; }
         public virtual Release Release { get; set; }
-        public virtual ICollection<User> Participants { get; set; }
+        public virtual ICollection<Participant> Participants { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/25/2015 22:14:34
+-- Date Created: 11/28/2015 20:24:10
 -- Generated from EDMX file: J:\Root\DOT.NET\Linguistique-Valida\Linguistique.Valida.Data\LVData.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,218 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_ProjectRequirement]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Requirements] DROP CONSTRAINT [FK_ProjectRequirement];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectDefect]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Defects] DROP CONSTRAINT [FK_ProjectDefect];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectManagerUser]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Projects] DROP CONSTRAINT [FK_ProjectManagerUser];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectBrand_Project]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectBrand] DROP CONSTRAINT [FK_ProjectBrand_Project];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectBrand_Brand]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectBrand] DROP CONSTRAINT [FK_ProjectBrand_Brand];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectLanguage_Project]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectLanguage] DROP CONSTRAINT [FK_ProjectLanguage_Project];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectLanguage_Language]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectLanguage] DROP CONSTRAINT [FK_ProjectLanguage_Language];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectSteamers_Project]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectSteamers] DROP CONSTRAINT [FK_ProjectSteamers_Project];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectSteamers_User]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectSteamers] DROP CONSTRAINT [FK_ProjectSteamers_User];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectITers_Project]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectITers] DROP CONSTRAINT [FK_ProjectITers_Project];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectITers_User]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectITers] DROP CONSTRAINT [FK_ProjectITers_User];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectPartners_Project]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectPartners] DROP CONSTRAINT [FK_ProjectPartners_Project];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectPartners_User]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProjectPartners] DROP CONSTRAINT [FK_ProjectPartners_User];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProjectRelease]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Projects] DROP CONSTRAINT [FK_ProjectRelease];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementBrand]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Requirements] DROP CONSTRAINT [FK_RequirementBrand];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementApplication]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Requirements] DROP CONSTRAINT [FK_RequirementApplication];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementTLead]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Requirements] DROP CONSTRAINT [FK_RequirementTLead];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementResponsibleUser]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Requirements] DROP CONSTRAINT [FK_RequirementResponsibleUser];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementClientSettingsFiles_Requirement]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RequirementClientSettingsFiles] DROP CONSTRAINT [FK_RequirementClientSettingsFiles_Requirement];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementClientSettingsFiles_File]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RequirementClientSettingsFiles] DROP CONSTRAINT [FK_RequirementClientSettingsFiles_File];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementServerSettingsFiles_Requirement]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RequirementServerSettingsFiles] DROP CONSTRAINT [FK_RequirementServerSettingsFiles_Requirement];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementServerSettingsFiles_File]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RequirementServerSettingsFiles] DROP CONSTRAINT [FK_RequirementServerSettingsFiles_File];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementLicense_Requirement]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RequirementLicense] DROP CONSTRAINT [FK_RequirementLicense_Requirement];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementLicense_License]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RequirementLicense] DROP CONSTRAINT [FK_RequirementLicense_License];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementRole_Requirement]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RequirementRole] DROP CONSTRAINT [FK_RequirementRole_Requirement];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementRole_Role]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RequirementRole] DROP CONSTRAINT [FK_RequirementRole_Role];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementArea_Requirement]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RequirementArea] DROP CONSTRAINT [FK_RequirementArea_Requirement];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementArea_Area]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RequirementArea] DROP CONSTRAINT [FK_RequirementArea_Area];
+GO
+IF OBJECT_ID(N'[dbo].[FK_FileRequirementScenarioPPT]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Requirements] DROP CONSTRAINT [FK_FileRequirementScenarioPPT];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DefectBrand]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Defects] DROP CONSTRAINT [FK_DefectBrand];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DefectLanguage]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Defects] DROP CONSTRAINT [FK_DefectLanguage];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DefectUserApplicationEngg]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Defects] DROP CONSTRAINT [FK_DefectUserApplicationEngg];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DefectUserLinguist]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Defects] DROP CONSTRAINT [FK_DefectUserLinguist];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DefectApplication]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Defects] DROP CONSTRAINT [FK_DefectApplication];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DefectFileDescriptionFiles_Defect]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DefectFileDescriptionFiles] DROP CONSTRAINT [FK_DefectFileDescriptionFiles_Defect];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DefectFileDescriptionFiles_File]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DefectFileDescriptionFiles] DROP CONSTRAINT [FK_DefectFileDescriptionFiles_File];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SeverityDefect]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Defects] DROP CONSTRAINT [FK_SeverityDefect];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DefectCategory]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Defects] DROP CONSTRAINT [FK_DefectCategory];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DefectStatus]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Defects] DROP CONSTRAINT [FK_DefectStatus];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UserAttendeeType]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK_UserAttendeeType];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RequirementMedia]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Requirements] DROP CONSTRAINT [FK_RequirementMedia];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Projects]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Projects];
+GO
+IF OBJECT_ID(N'[dbo].[Requirements]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Requirements];
+GO
+IF OBJECT_ID(N'[dbo].[Defects]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Defects];
+GO
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
+GO
+IF OBJECT_ID(N'[dbo].[Brands]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Brands];
+GO
+IF OBJECT_ID(N'[dbo].[Releases]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Releases];
+GO
+IF OBJECT_ID(N'[dbo].[Roles]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Roles];
+GO
+IF OBJECT_ID(N'[dbo].[Applications]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Applications];
+GO
+IF OBJECT_ID(N'[dbo].[Licenses]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Licenses];
+GO
+IF OBJECT_ID(N'[dbo].[Areas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Areas];
+GO
+IF OBJECT_ID(N'[dbo].[Files]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Files];
+GO
+IF OBJECT_ID(N'[dbo].[Languages]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Languages];
+GO
+IF OBJECT_ID(N'[dbo].[Severities]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Severities];
+GO
+IF OBJECT_ID(N'[dbo].[Categories]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Categories];
+GO
+IF OBJECT_ID(N'[dbo].[Status]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Status];
+GO
+IF OBJECT_ID(N'[dbo].[AttendeeTypes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AttendeeTypes];
+GO
+IF OBJECT_ID(N'[dbo].[Medias]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Medias];
+GO
+IF OBJECT_ID(N'[dbo].[ProjectBrand]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProjectBrand];
+GO
+IF OBJECT_ID(N'[dbo].[ProjectLanguage]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProjectLanguage];
+GO
+IF OBJECT_ID(N'[dbo].[ProjectSteamers]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProjectSteamers];
+GO
+IF OBJECT_ID(N'[dbo].[ProjectITers]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProjectITers];
+GO
+IF OBJECT_ID(N'[dbo].[ProjectPartners]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProjectPartners];
+GO
+IF OBJECT_ID(N'[dbo].[RequirementClientSettingsFiles]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RequirementClientSettingsFiles];
+GO
+IF OBJECT_ID(N'[dbo].[RequirementServerSettingsFiles]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RequirementServerSettingsFiles];
+GO
+IF OBJECT_ID(N'[dbo].[RequirementLicense]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RequirementLicense];
+GO
+IF OBJECT_ID(N'[dbo].[RequirementRole]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RequirementRole];
+GO
+IF OBJECT_ID(N'[dbo].[RequirementArea]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RequirementArea];
+GO
+IF OBJECT_ID(N'[dbo].[DefectFileDescriptionFiles]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DefectFileDescriptionFiles];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -55,10 +262,10 @@ CREATE TABLE [dbo].[Requirements] (
     [ProjectId] int  NOT NULL,
     [BrandId] int  NOT NULL,
     [ApplicationId] int  NOT NULL,
-    [UserId] int  NOT NULL,
-    [UserId1] int  NOT NULL,
-    [MediaId] int  NOT NULL,
-    [FileId] int  NOT NULL
+    [TLeadUserId] int  NOT NULL,
+    [ResponsibleUserId] int  NOT NULL,
+    [FileId] int  NOT NULL,
+    [Media_Id] int  NOT NULL
 );
 GO
 
@@ -78,8 +285,8 @@ CREATE TABLE [dbo].[Defects] (
     [ProjectId] int  NOT NULL,
     [BrandId] int  NOT NULL,
     [LanguageId] int  NOT NULL,
-    [UserId] int  NOT NULL,
-    [UserId1] int  NOT NULL,
+    [ApplicationEnggUserId] int  NOT NULL,
+    [LinguistUserId] int  NOT NULL,
     [ApplicationId] int  NOT NULL,
     [SeverityId] int  NOT NULL,
     [CategoryId] int  NOT NULL,
@@ -92,7 +299,8 @@ CREATE TABLE [dbo].[Users] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [IDCode] nvarchar(max)  NOT NULL,
-    [Email] nvarchar(max)  NOT NULL
+    [Email] nvarchar(max)  NOT NULL,
+    [AttendeeType_Id] int  NULL
 );
 GO
 
@@ -109,13 +317,6 @@ CREATE TABLE [dbo].[Releases] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [IDCode] nvarchar(max)  NOT NULL
-);
-GO
-
--- Creating table 'Media'
-CREATE TABLE [dbo].[Media] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [Name] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -146,7 +347,8 @@ GO
 -- Creating table 'Areas'
 CREATE TABLE [dbo].[Areas] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [IDCode] nvarchar(max)  NOT NULL
+    [IDCode] nvarchar(max)  NOT NULL,
+    [Name] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -187,6 +389,28 @@ CREATE TABLE [dbo].[Status] (
 );
 GO
 
+-- Creating table 'AttendeeTypes'
+CREATE TABLE [dbo].[AttendeeTypes] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'Medias'
+CREATE TABLE [dbo].[Medias] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'Participants'
+CREATE TABLE [dbo].[Participants] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [UserId] int  NOT NULL,
+    [AttendeeTypeId] int  NOT NULL
+);
+GO
+
 -- Creating table 'ProjectBrand'
 CREATE TABLE [dbo].[ProjectBrand] (
     [Projects_Id] int  NOT NULL,
@@ -219,13 +443,6 @@ GO
 CREATE TABLE [dbo].[ProjectPartners] (
     [ProjectsPartners_Id] int  NOT NULL,
     [Partners_Id] int  NOT NULL
-);
-GO
-
--- Creating table 'ProjectParticipants'
-CREATE TABLE [dbo].[ProjectParticipants] (
-    [ProjectsParticipants_Id] int  NOT NULL,
-    [Participants_Id] int  NOT NULL
 );
 GO
 
@@ -271,6 +488,13 @@ CREATE TABLE [dbo].[DefectFileDescriptionFiles] (
 );
 GO
 
+-- Creating table 'ProjectParticipant'
+CREATE TABLE [dbo].[ProjectParticipant] (
+    [Projects_Id] int  NOT NULL,
+    [Participants_Id] int  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -308,12 +532,6 @@ GO
 -- Creating primary key on [Id] in table 'Releases'
 ALTER TABLE [dbo].[Releases]
 ADD CONSTRAINT [PK_Releases]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
--- Creating primary key on [Id] in table 'Media'
-ALTER TABLE [dbo].[Media]
-ADD CONSTRAINT [PK_Media]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -371,6 +589,24 @@ ADD CONSTRAINT [PK_Status]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
+-- Creating primary key on [Id] in table 'AttendeeTypes'
+ALTER TABLE [dbo].[AttendeeTypes]
+ADD CONSTRAINT [PK_AttendeeTypes]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Medias'
+ALTER TABLE [dbo].[Medias]
+ADD CONSTRAINT [PK_Medias]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Participants'
+ALTER TABLE [dbo].[Participants]
+ADD CONSTRAINT [PK_Participants]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
 -- Creating primary key on [Projects_Id], [Brands_Id] in table 'ProjectBrand'
 ALTER TABLE [dbo].[ProjectBrand]
 ADD CONSTRAINT [PK_ProjectBrand]
@@ -399,12 +635,6 @@ GO
 ALTER TABLE [dbo].[ProjectPartners]
 ADD CONSTRAINT [PK_ProjectPartners]
     PRIMARY KEY CLUSTERED ([ProjectsPartners_Id], [Partners_Id] ASC);
-GO
-
--- Creating primary key on [ProjectsParticipants_Id], [Participants_Id] in table 'ProjectParticipants'
-ALTER TABLE [dbo].[ProjectParticipants]
-ADD CONSTRAINT [PK_ProjectParticipants]
-    PRIMARY KEY CLUSTERED ([ProjectsParticipants_Id], [Participants_Id] ASC);
 GO
 
 -- Creating primary key on [RequirementsClientSettings_Id], [ClientSettingsFiles_Id] in table 'RequirementClientSettingsFiles'
@@ -441,6 +671,12 @@ GO
 ALTER TABLE [dbo].[DefectFileDescriptionFiles]
 ADD CONSTRAINT [PK_DefectFileDescriptionFiles]
     PRIMARY KEY CLUSTERED ([DefectsDescriptionFiles_Id], [DescriptionFiles_Id] ASC);
+GO
+
+-- Creating primary key on [Projects_Id], [Participants_Id] in table 'ProjectParticipant'
+ALTER TABLE [dbo].[ProjectParticipant]
+ADD CONSTRAINT [PK_ProjectParticipant]
+    PRIMARY KEY CLUSTERED ([Projects_Id], [Participants_Id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -627,30 +863,6 @@ ON [dbo].[Projects]
     ([Release_Id]);
 GO
 
--- Creating foreign key on [ProjectsParticipants_Id] in table 'ProjectParticipants'
-ALTER TABLE [dbo].[ProjectParticipants]
-ADD CONSTRAINT [FK_ProjectParticipants_Project]
-    FOREIGN KEY ([ProjectsParticipants_Id])
-    REFERENCES [dbo].[Projects]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Participants_Id] in table 'ProjectParticipants'
-ALTER TABLE [dbo].[ProjectParticipants]
-ADD CONSTRAINT [FK_ProjectParticipants_User]
-    FOREIGN KEY ([Participants_Id])
-    REFERENCES [dbo].[Users]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_ProjectParticipants_User'
-CREATE INDEX [IX_FK_ProjectParticipants_User]
-ON [dbo].[ProjectParticipants]
-    ([Participants_Id]);
-GO
-
 -- Creating foreign key on [BrandId] in table 'Requirements'
 ALTER TABLE [dbo].[Requirements]
 ADD CONSTRAINT [FK_RequirementBrand]
@@ -681,10 +893,10 @@ ON [dbo].[Requirements]
     ([ApplicationId]);
 GO
 
--- Creating foreign key on [UserId] in table 'Requirements'
+-- Creating foreign key on [TLeadUserId] in table 'Requirements'
 ALTER TABLE [dbo].[Requirements]
 ADD CONSTRAINT [FK_RequirementTLead]
-    FOREIGN KEY ([UserId])
+    FOREIGN KEY ([TLeadUserId])
     REFERENCES [dbo].[Users]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -693,13 +905,13 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_RequirementTLead'
 CREATE INDEX [IX_FK_RequirementTLead]
 ON [dbo].[Requirements]
-    ([UserId]);
+    ([TLeadUserId]);
 GO
 
--- Creating foreign key on [UserId1] in table 'Requirements'
+-- Creating foreign key on [ResponsibleUserId] in table 'Requirements'
 ALTER TABLE [dbo].[Requirements]
 ADD CONSTRAINT [FK_RequirementResponsibleUser]
-    FOREIGN KEY ([UserId1])
+    FOREIGN KEY ([ResponsibleUserId])
     REFERENCES [dbo].[Users]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -708,22 +920,7 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_RequirementResponsibleUser'
 CREATE INDEX [IX_FK_RequirementResponsibleUser]
 ON [dbo].[Requirements]
-    ([UserId1]);
-GO
-
--- Creating foreign key on [MediaId] in table 'Requirements'
-ALTER TABLE [dbo].[Requirements]
-ADD CONSTRAINT [FK_RequirementMedia]
-    FOREIGN KEY ([MediaId])
-    REFERENCES [dbo].[Media]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_RequirementMedia'
-CREATE INDEX [IX_FK_RequirementMedia]
-ON [dbo].[Requirements]
-    ([MediaId]);
+    ([ResponsibleUserId]);
 GO
 
 -- Creating foreign key on [RequirementsClientSettings_Id] in table 'RequirementClientSettingsFiles'
@@ -891,10 +1088,10 @@ ON [dbo].[Defects]
     ([LanguageId]);
 GO
 
--- Creating foreign key on [UserId] in table 'Defects'
+-- Creating foreign key on [ApplicationEnggUserId] in table 'Defects'
 ALTER TABLE [dbo].[Defects]
 ADD CONSTRAINT [FK_DefectUserApplicationEngg]
-    FOREIGN KEY ([UserId])
+    FOREIGN KEY ([ApplicationEnggUserId])
     REFERENCES [dbo].[Users]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -903,13 +1100,13 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_DefectUserApplicationEngg'
 CREATE INDEX [IX_FK_DefectUserApplicationEngg]
 ON [dbo].[Defects]
-    ([UserId]);
+    ([ApplicationEnggUserId]);
 GO
 
--- Creating foreign key on [UserId1] in table 'Defects'
+-- Creating foreign key on [LinguistUserId] in table 'Defects'
 ALTER TABLE [dbo].[Defects]
 ADD CONSTRAINT [FK_DefectUserLinguist]
-    FOREIGN KEY ([UserId1])
+    FOREIGN KEY ([LinguistUserId])
     REFERENCES [dbo].[Users]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -918,7 +1115,7 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_DefectUserLinguist'
 CREATE INDEX [IX_FK_DefectUserLinguist]
 ON [dbo].[Defects]
-    ([UserId1]);
+    ([LinguistUserId]);
 GO
 
 -- Creating foreign key on [ApplicationId] in table 'Defects'
@@ -1003,6 +1200,90 @@ GO
 CREATE INDEX [IX_FK_DefectStatus]
 ON [dbo].[Defects]
     ([StatusId]);
+GO
+
+-- Creating foreign key on [AttendeeType_Id] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [FK_UserAttendeeType]
+    FOREIGN KEY ([AttendeeType_Id])
+    REFERENCES [dbo].[AttendeeTypes]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserAttendeeType'
+CREATE INDEX [IX_FK_UserAttendeeType]
+ON [dbo].[Users]
+    ([AttendeeType_Id]);
+GO
+
+-- Creating foreign key on [Media_Id] in table 'Requirements'
+ALTER TABLE [dbo].[Requirements]
+ADD CONSTRAINT [FK_RequirementMedia]
+    FOREIGN KEY ([Media_Id])
+    REFERENCES [dbo].[Medias]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_RequirementMedia'
+CREATE INDEX [IX_FK_RequirementMedia]
+ON [dbo].[Requirements]
+    ([Media_Id]);
+GO
+
+-- Creating foreign key on [UserId] in table 'Participants'
+ALTER TABLE [dbo].[Participants]
+ADD CONSTRAINT [FK_ParticipantUser]
+    FOREIGN KEY ([UserId])
+    REFERENCES [dbo].[Users]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ParticipantUser'
+CREATE INDEX [IX_FK_ParticipantUser]
+ON [dbo].[Participants]
+    ([UserId]);
+GO
+
+-- Creating foreign key on [AttendeeTypeId] in table 'Participants'
+ALTER TABLE [dbo].[Participants]
+ADD CONSTRAINT [FK_ParticipantAttendeeType]
+    FOREIGN KEY ([AttendeeTypeId])
+    REFERENCES [dbo].[AttendeeTypes]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ParticipantAttendeeType'
+CREATE INDEX [IX_FK_ParticipantAttendeeType]
+ON [dbo].[Participants]
+    ([AttendeeTypeId]);
+GO
+
+-- Creating foreign key on [Projects_Id] in table 'ProjectParticipant'
+ALTER TABLE [dbo].[ProjectParticipant]
+ADD CONSTRAINT [FK_ProjectParticipant_Project]
+    FOREIGN KEY ([Projects_Id])
+    REFERENCES [dbo].[Projects]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Participants_Id] in table 'ProjectParticipant'
+ALTER TABLE [dbo].[ProjectParticipant]
+ADD CONSTRAINT [FK_ProjectParticipant_Participant]
+    FOREIGN KEY ([Participants_Id])
+    REFERENCES [dbo].[Participants]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProjectParticipant_Participant'
+CREATE INDEX [IX_FK_ProjectParticipant_Participant]
+ON [dbo].[ProjectParticipant]
+    ([Participants_Id]);
 GO
 
 -- --------------------------------------------------

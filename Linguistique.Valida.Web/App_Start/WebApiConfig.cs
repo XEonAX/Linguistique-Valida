@@ -12,7 +12,17 @@ namespace Linguistique.Valida.Web
             config.Routes.MapHttpRoute(
                 name: "Projects",
                 routeTemplate: "api/projects/{id}",
-                defaults: new { controller = "Project", id = RouteParameter.Optional}
+                defaults: new { controller = "Project", id = RouteParameter.Optional }
+            );
+            config.Routes.MapHttpRoute(
+                name: "Users",
+                routeTemplate: "api/users/{id}",
+                defaults: new { controller = "User", id = RouteParameter.Optional }
+            );
+            config.Routes.MapHttpRoute(
+                name: "Misc",
+                routeTemplate: "api/misc/{action}/{id}",
+                defaults: new { controller = "Misc", action = "seed", id = RouteParameter.Optional }
             );
         }
     }

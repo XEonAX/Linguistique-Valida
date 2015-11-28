@@ -56,7 +56,7 @@ namespace Linguistique.Valida.Data
 
         public IQueryable<Media> GetAllMedias()
         {
-            return _context.Media.AsQueryable();
+            return _context.Medias.AsQueryable();
         }
 
         public IQueryable<License> GetAllLicenses()

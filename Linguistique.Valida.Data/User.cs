@@ -9,9 +9,10 @@
 
 namespace Linguistique.Valida.Data
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class User
     {
         public User()
@@ -20,26 +21,37 @@ namespace Linguistique.Valida.Data
             this.ProjectsSteamers = new HashSet<Project>();
             this.ProjectsITers = new HashSet<Project>();
             this.ProjectsPartners = new HashSet<Project>();
-            this.ProjectsParticipants = new HashSet<Project>();
             this.RequirementsTLead = new HashSet<Requirement>();
             this.RequirementsResponsible = new HashSet<Requirement>();
             this.DefectsApplicationEngg = new HashSet<Defect>();
             this.DefectsLinguist = new HashSet<Defect>();
+            this.Participants = new HashSet<Participant>();
         }
-    
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string IDCode { get; set; }
         public string Email { get; set; }
-    
+
+        [JsonIgnore]
         public virtual ICollection<Project> ProjectsManager { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Project> ProjectsSteamers { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Project> ProjectsITers { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Project> ProjectsPartners { get; set; }
-        public virtual ICollection<Project> ProjectsParticipants { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Requirement> RequirementsTLead { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Requirement> RequirementsResponsible { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Defect> DefectsApplicationEngg { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Defect> DefectsLinguist { get; set; }
+        [JsonIgnore]
+        public virtual AttendeeType AttendeeType { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<Participant> Participants { get; set; }
     }
 }
