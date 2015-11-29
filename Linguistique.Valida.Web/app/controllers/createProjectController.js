@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('CreateProjectController', function ($scope, $mdToast, $filter, $location, $window, ProjectsService)
+app.controller('CreateProjectController', function ($scope, $mdToast, $filter, $location, $window, ProjectsService, TypeaheadService)
 {
     var project = {};
     $scope.project = project;
@@ -7,60 +7,89 @@ app.controller('CreateProjectController', function ($scope, $mdToast, $filter, $
     $scope.dateTo = new Date();
 
     var self = $scope.project;
-    self.querySearch = querySearch;
-    self.allContacts = loadContacts();
+
     self.participants = [];
     self.itpeople = [];
     self.steampeople = [];
 
-    self.filterSelected = true;
     self.languages = ['FRENCH', 'GERMAN', 'JAPANESE', 'CHINESE'];
 
+    self.UserSearch = TypeaheadService.UserSearch;
+    self.ReleaseSearch = TypeaheadService.ReleaseSearch;
+
+    $scope.LoadReleases = function ()
+    {
+        $scope.releases = $scope.releases || TypeaheadService.ReleaseSearch("")
+            .then(function (data)
+            {
+                $scope.releases = data;
+            });
+    }
+
+
+    self.querySearch = querySearch;
+    self.contacts = [];
+    self.filterSelected = true;
+    self.contactCache = {};
 
     /**
      * Search for contacts.
      */
     function querySearch(query)
     {
-        var results = query ?
-            self.allContacts.filter(createFilterFor(query)) : [];
-        return results;
+        var result;
+        if (query)
+        {
+            result = loadAndParseContacts(query).then(function (data)
+            {
+                return data.filter(createFilterFor(query))
+            })
+        } else
+        {
+            result = []
+        }
+        return result
     }
+
     /**
      * Create filter function for a query string
      */
     function createFilterFor(query)
     {
         var lowercaseQuery = angular.lowercase(query);
+
         return function filterFn(contact)
         {
             return (contact._lowername.indexOf(lowercaseQuery) != -1);;
         };
+
     }
-    function loadContacts()
+    function parse(data)
     {
-        var contacts = [
-          'Marina Augustine',
-          'Oddr Sarno',
-          'Nick Giannopoulos',
-          'Narayana Garner',
-          'Anita Gros',
-          'Megan Smith',
-          'Tsvetko Metzger',
-          'Hector Simek',
-          'Some-guy withalongalastaname'
-        ];
-        return contacts.map(function (c, index)
+        return data.map(function (c, index)
         {
-            var cParts = c.split(' ');
-            var contact = {
-                name: c,
-                email: cParts[0][0].toLowerCase() + '.' + cParts[1].toLowerCase() + '@example.com',
-                image: 'http://lorempixel.com/50/50/people?' + index
-            };
-            contact._lowername = contact.name.toLowerCase();
-            return contact;
-        })
+            var idcode = c.IDCode;
+            if (!!self.contactCache[idcode])
+            {
+                return self.contactCache[idcode];
+            }
+            else
+            {
+                var contact = {
+                    name: c.Name,
+                    email: c.Email,
+                    idcode: c.IDCode,
+                    image: 'http://lorempixel.com/50/50/people?' + c.IDCode
+                };
+                contact._lowername = contact.name.toLowerCase();
+                self.contactCache[idcode] = contact;
+                return contact;
+            }
+        });
+    }
+    function loadAndParseContacts(query)
+    {
+        return TypeaheadService.UserSearch(query).then(parse);
     }
 
 

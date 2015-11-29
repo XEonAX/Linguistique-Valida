@@ -9,6 +9,7 @@ namespace Linguistique.Valida.Web
     {
         public static void Register(HttpConfiguration config)
         {
+            config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(
                 name: "Projects",
                 routeTemplate: "api/projects/{id}",
